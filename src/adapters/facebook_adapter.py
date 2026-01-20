@@ -183,6 +183,16 @@ class FacebookAdapter(BaseAdapter):
         for key, data in self.raw_data.items():
             if any(p in key.lower() for p in ad_patterns):
                 events.extend(self._extract_ad_events(data, key))
+            # Also check main key content for ad patterns
+            elif key == 'main' and isinstance(data, dict):
+                for k, v in data.items():
+                    if any(p in k.lower() for p in ad_patterns):
+                        events.extend(self._extract_ad_events(v, k))
+                # Also check if data itself contains ad fields at top level
+                for pattern in ad_patterns:
+                    if pattern in data and isinstance(data[pattern], list):
+                        events.extend(self._extract_ad_events(data, key))
+                        break
 
         return events
 
@@ -246,6 +256,30 @@ class FacebookAdapter(BaseAdapter):
                             )
                             events.append(event)
 
+        elif isinstance(data, list):
+            # Handle direct list of advertisers or events
+            for item in data:
+                if isinstance(item, dict):
+                    # Check if it's an advertiser
+                    if 'name' in item and 'timestamp' in item:
+                        event = UniversalEvent(
+                            timestamp=self.parse_timestamp(item.get('timestamp', datetime.now().timestamp())),
+                            user_id=self.hash_user_id('facebook_user'),
+                            channel='Paid Social',
+                            event_type='click',
+                            context={
+                                'device': 'unknown',
+                                'intent_signal': 'medium',
+                                'session_depth': 'unknown',
+                                'source_platform': 'facebook'
+                            },
+                            metadata={
+                                'advertiser': item.get('name', 'unknown'),
+                                'source_file': source_key
+                            }
+                        )
+                        events.append(event)
+
         return events
 
     def _parse_off_facebook(self) -> List[UniversalEvent]:
@@ -253,33 +287,53 @@ class FacebookAdapter(BaseAdapter):
         events = []
 
         for key, data in self.raw_data.items():
-            if 'off_facebook' in key.lower() or 'off-facebook' in key.lower():
-                if isinstance(data, dict) and 'off_facebook_activity_v2' in data:
-                    for business in data['off_facebook_activity_v2']:
-                        business_name = business.get('name', 'unknown')
-
-                        for event_data in business.get('events', []):
-                            ts = event_data.get('timestamp', datetime.now().timestamp())
-                            event = UniversalEvent(
-                                timestamp=self.parse_timestamp(ts),
-                                user_id=self.hash_user_id('facebook_user'),
-                                channel=self._map_business_to_channel(business_name),
-                                event_type=self._classify_event_type(event_data),
-                                context={
-                                    'device': 'unknown',
-                                    'intent_signal': self._infer_intent_from_type(
-                                        event_data.get('type', '')
-                                    ),
-                                    'session_depth': 'unknown',
-                                    'source_platform': business_name
-                                },
-                                metadata={
-                                    'business': business_name,
-                                    'raw_type': event_data.get('type', 'unknown'),
-                                    'source_file': key
-                                }
-                            )
-                            events.append(event)
+            # Check key name for patterns
+            key_match = 'off_facebook' in key.lower() or 'off-facebook' in key.lower()
+            
+            if isinstance(data, dict):
+                # Try finding off_facebook_activity_v2 in the data
+                if 'off_facebook_activity_v2' in data:
+                    data = data['off_facebook_activity_v2']
+                # Also handle case where data is directly the activity list
+                elif key == 'main' and isinstance(data, dict):
+                    # When loading single file, search for activity data
+                    for k, v in data.items():
+                        if 'off_facebook' in k.lower():
+                            if isinstance(v, dict) and 'off_facebook_activity_v2' in v:
+                                data = v['off_facebook_activity_v2']
+                                break
+                            elif isinstance(v, list):
+                                data = v
+                                break
+                
+                # Process as list of businesses
+                if isinstance(data, list):
+                    for business in data:
+                        if isinstance(business, dict):
+                            business_name = business.get('name', 'unknown')
+                            for event_data in business.get('events', []):
+                                if isinstance(event_data, dict):
+                                    ts = event_data.get('timestamp', datetime.now().timestamp())
+                                    event = UniversalEvent(
+                                        timestamp=self.parse_timestamp(ts),
+                                        user_id=self.hash_user_id('facebook_user'),
+                                        channel=self._map_business_to_channel(business_name),
+                                        event_type=self._classify_event_type(event_data),
+                                        context={
+                                            'device': 'unknown',
+                                            'intent_signal': self._infer_intent_from_type(
+                                                event_data.get('type', '')
+                                            ),
+                                            'session_depth': 'unknown',
+                                            'source_platform': business_name
+                                        },
+                                        metadata={
+                                            'business': business_name,
+                                            'raw_type': event_data.get('type', 'unknown'),
+                                            'source_file': key
+                                        }
+                                    )
+                                    events.append(event)
 
         return events
 
