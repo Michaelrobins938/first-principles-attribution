@@ -48,6 +48,23 @@ examples/sample_attribution_result.json
 
 ---
 
+## 🔄 Methodology Flow
+
+![Attribution Pipeline](docs/images/methodology-flow.png)
+
+### Step-by-Step Process:
+
+1. **Multi-Source Data** → Universal adapters normalize inputs
+2. **UniversalEvent Schema** → Privacy-preserving standardization
+3. **Markov Chain Analysis** → Probabilistic path modeling with removal effects
+4. **Shapley Value Calculation** → Fair credit distribution via game theory
+5. **Hybrid Attribution (α=0.5)** → Optimal blend of causality and fairness
+6. **Dual Uncertainty Quantification** → Bootstrap + Dirichlet methods
+7. **Validation Suite** → Compare against baselines
+8. **Export Results** → Schema-validated JSON with 90% confidence intervals
+
+---
+
 ## 🏗️ System Architecture
 
 The platform uses a multi-layer architecture combining probabilistic modeling, game theory, and Bayesian statistics:
@@ -58,6 +75,8 @@ The platform uses a multi-layer architecture combining probabilistic modeling, g
 4. **Hybrid Blending** - Tunable α parameter for causality/fairness balance
 5. **Uncertainty Quantification** - Dual UQ with Bootstrap and Dirichlet methods
 6. **Validation & Export** - Schema-validated JSON artifacts
+
+![System Architecture](docs/images/architecture.png)
 
 ---
 
@@ -140,6 +159,8 @@ The platform uses a multi-layer architecture combining probabilistic modeling, g
 | **Validation** | ❌ | ❌ | ❌ | ✅ Full suite |
 | **Causal Inference** | ❌ | ❌ | ❌ | ✅ 5 methods |
 | **Multi-Source** | Limited | Limited | Limited | ✅ Universal adapters |
+
+![Comparison Chart](docs/images/comparison-chart.png)
 
 First-Principles provides **causal measurement** (not just correlation), **axiomatic fairness** (via game theory), and **uncertainty quantification** (confidence intervals on all scores).
 

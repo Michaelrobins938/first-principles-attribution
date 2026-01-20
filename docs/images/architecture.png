@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00d9ff"/>
+    </marker>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="24" fill="#00d9ff" text-anchor="middle" font-weight="bold">First-Principles Attribution Engine</text>
+  <text x="400" y="60" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">System Architecture</text>
+  
+  <!-- Layer 1: Data Sources -->
+  <rect x="30" y="85" width="740" height="70" rx="8" fill="#e94560" opacity="0.15" stroke="#e94560" stroke-width="2"/>
+  <text x="60" y="105" font-family="Arial, sans-serif" font-size="12" fill="#e94560" font-weight="bold">DATA SOURCES</text>
+  
+  <rect x="60" y="115" width="140" height="30" rx="4" fill="#e94560" opacity="0.8"/>
+  <text x="130" y="135" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">Facebook Export</text>
+  
+  <rect x="220" y="115" width="140" height="30" rx="4" fill="#e94560" opacity="0.8"/>
+  <text x="290" y="135" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">GA4 / BigQuery</text>
+  
+  <rect x="380" y="115" width="140" height="30" rx="4" fill="#e94560" opacity="0.8"/>
+  <text x="450" y="135" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">CSV Files</text>
+  
+  <rect x="540" y="115" width="140" height="30" rx="4" fill="#e94560" opacity="0.8"/>
+  <text x="610" y="135" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">Browser History</text>
+  
+  <rect x="700" y="115" width="40" height="30" rx="4" fill="#e94560" opacity="0.6"/>
+  <text x="720" y="135" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">+</text>
+  
+  <!-- Arrow down -->
+  <line x1="400" y1="165" x2="400" y2="180" stroke="#00d9ff" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Layer 2: Adapters -->
+  <rect x="30" y="190" width="740" height="55" rx="8" fill="#0f3460" opacity="0.3" stroke="#00d9ff" stroke-width="2"/>
+  <text x="60" y="210" font-family="Arial, sans-serif" font-size="12" fill="#00d9ff" font-weight="bold">UNIVERSAL ADAPTERS</text>
+  
+  <rect x="200" y="215" width="400" height="20" rx="10" fill="#0f3460" stroke="#00d9ff" stroke-width="1"/>
+  <text x="400" y="228" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">UniversalEvent Schema (Timestamp | UserID (hashed) | Channel | EventType | Context)</text>
+  
+  <!-- Arrow down -->
+  <line x1="400" y1="255" x2="400" y2="270" stroke="#00d9ff" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Layer 3: Attribution Engines -->
+  <rect x="30" y="280" width="740" height="70" rx="8" fill="#16213e" opacity="0.5" stroke="#ffd700" stroke-width="2"/>
+  <text x="60" y="300" font-family="Arial, sans-serif" font-size="12" fill="#ffd700" font-weight="bold">ATTRIBUTION ENGINES</text>
+  
+  <rect x="80" y="315" width="200" height="25" rx="4" fill="#16213e" stroke="#e94560" stroke-width="2"/>
+  <text x="180" y="332" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">Markov Chain Engine</text>
+  
+  <rect x="300" y="315" width="200" height="25" rx="4" fill="#16213e" stroke="#00d9ff" stroke-width="2"/>
+  <text x="400" y="332" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">Shapley Value Engine</text>
+  
+  <rect x="520" y="315" width="200" height="25" rx="4" fill="#16213e" stroke="#ffd700" stroke-width="2"/>
+  <text x="620" y="332" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">Hybrid Blending (α)</text>
+  
+  <!-- Arrow down -->
+  <line x1="400" y1="360" x2="400" y2="375" stroke="#00d9ff" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Layer 4: UQ & Validation -->
+  <rect x="30" y="385" width="740" height="55" rx="8" fill="#0f3460" opacity="0.3" stroke="#00ff88" stroke-width="2"/>
+  <text x="60" y="405" font-family="Arial, sans-serif" font-size="12" fill="#00ff88" font-weight="bold">UNQUANTIFIED OUTPUT</text>
+  
+  <rect x="220" y="405" width="360" height="25" rx="4" fill="#0f3460" stroke="#00ff88" stroke-width="1"/>
+  <text x="400" y="422" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">Dual UQ (Bootstrap + Dirichlet) | Validation Suite | Schema Export</text>
+  
+  <!-- Legend -->
+  <rect x="30" y="430" width="15" height="15" fill="#e94560" opacity="0.8"/>
+  <text x="55" y="442" font-family="Arial, sans-serif" font-size="9" fill="#ccc">Data</text>
+  
+  <rect x="100" y="430" width="15" height="15" fill="#0f3460" stroke="#00d9ff" stroke-width="1"/>
+  <text x="125" y="442" font-family="Arial, sans-serif" font-size="9" fill="#ccc">Processing</text>
+  
+  <rect x="185" y="430" width="15" height="15" fill="#16213e" stroke="#ffd700" stroke-width="1"/>
+  <text x="210" y="442" font-family="Arial, sans-serif" font-size="9" fill="#ccc">Computation</text>
+  
+  <rect x="260" y="430" width="15" height="15" fill="#0f3460" stroke="#00ff88" stroke-width="1"/>
+  <text x="285" y="442" font-family="Arial, sans-serif" font-size="9" fill="#ccc">Output</text>
+</svg>
