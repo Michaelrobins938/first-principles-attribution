@@ -1,0 +1,736 @@
+{
+    "$id": "https://example.local/ir/attribution.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "AttributionIRArtifact",
+    "oneOf": [
+        {
+            "$ref": "#/definitions/AttributionResult"
+        },
+        {
+            "$ref": "#/definitions/SensitivityAlpha"
+        },
+        {
+            "$ref": "#/definitions/UQBootstrap"
+        },
+        {
+            "$ref": "#/definitions/SensitivityLambda"
+        },
+        {
+            "$ref": "#/definitions/UQTransitionDirichlet"
+        },
+        {
+            "$ref": "#/definitions/SensitivityLocal"
+        }
+    ],
+    "definitions": {
+        "AttributionResult": {
+            "type": "object",
+            "required": [
+                "ir_version",
+                "model",
+                "states",
+                "transition_matrix",
+                "markov_share",
+                "markov_value",
+                "shapley_share",
+                "shapley_value",
+                "hybrid_share",
+                "hybrid_value",
+                "alpha",
+                "total_conversion_value",
+                "psychographic_weights",
+                "notes"
+            ],
+            "properties": {
+                "ir_version": {
+                    "const": "1.0.0"
+                },
+                "model": {
+                    "type": "object",
+                    "required": [
+                        "markov_order",
+                        "shapley",
+                        "removal_policy",
+                        "psychographic_priors",
+                        "max_channels_guardrail"
+                    ],
+                    "properties": {
+                        "markov_order": {
+                            "type": "integer"
+                        },
+                        "shapley": {
+                            "enum": [
+                                "exact",
+                                "monte_carlo"
+                            ]
+                        },
+                        "removal_policy": {
+                            "const": "redirect_to_NULL"
+                        },
+                        "psychographic_priors": {
+                            "type": "string"
+                        },
+                        "max_channels_guardrail": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "states": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "transition_matrix": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "markov_share": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "number"
+                    }
+                },
+                "markov_value": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "number"
+                    }
+                },
+                "shapley_share": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "number"
+                    }
+                },
+                "shapley_value": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "number"
+                    }
+                },
+                "hybrid_share": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "number"
+                    }
+                },
+                "hybrid_value": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "number"
+                    }
+                },
+                "alpha": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "total_conversion_value": {
+                    "type": "number"
+                },
+                "psychographic_weights": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "number"
+                    }
+                },
+                "notes": {
+                    "type": "object",
+                    "properties": {
+                        "generated_at": {
+                            "type": "string"
+                        },
+                        "no_raw_events": {
+                            "type": "boolean"
+                        },
+                        "no_identifiers": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
+        "SensitivityAlpha": {
+            "type": "object",
+            "required": [
+                "type",
+                "version",
+                "alpha_grid",
+                "hybrid_value_series",
+                "statistics",
+                "rank_stability",
+                "total_conversion_value"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "const": "sensitivity_alpha"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "alpha_grid": {
+                    "type": "array",
+                    "minItems": 2,
+                    "items": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                    }
+                },
+                "hybrid_value_series": {
+                    "type": "object",
+                    "minProperties": 1,
+                    "additionalProperties": {
+                        "type": "array",
+                        "minItems": 2,
+                        "items": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "statistics": {
+                    "type": "object",
+                    "minProperties": 1,
+                    "additionalProperties": {
+                        "type": "object",
+                        "required": [
+                            "min",
+                            "max",
+                            "mean",
+                            "range"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "min": {
+                                "type": "number"
+                            },
+                            "max": {
+                                "type": "number"
+                            },
+                            "mean": {
+                                "type": "number"
+                            },
+                            "range": {
+                                "type": "number",
+                                "minimum": 0
+                            }
+                        }
+                    }
+                },
+                "rank_stability": {
+                    "type": "object",
+                    "minProperties": 1,
+                    "additionalProperties": {
+                        "type": "object",
+                        "minProperties": 1,
+                        "additionalProperties": false,
+                        "patternProperties": {
+                            "^top[1-9][0-9]*$": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                            }
+                        }
+                    }
+                },
+                "total_conversion_value": {
+                    "type": "number"
+                },
+                "generated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "UQBootstrap": {
+            "type": "object",
+            "required": [
+                "type",
+                "version",
+                "B",
+                "alpha",
+                "confidence_intervals",
+                "rank_stability",
+                "total_conversion_value"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "const": "uq_bootstrap"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "B": {
+                    "type": "integer",
+                    "minimum": 20
+                },
+                "alpha": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "confidence_intervals": {
+                    "type": "object",
+                    "minProperties": 1,
+                    "additionalProperties": {
+                        "type": "object",
+                        "required": [
+                            "p05",
+                            "p25",
+                            "p50",
+                            "p75",
+                            "p95",
+                            "mean",
+                            "std"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "p05": {
+                                "type": "number"
+                            },
+                            "p25": {
+                                "type": "number"
+                            },
+                            "p50": {
+                                "type": "number"
+                            },
+                            "p75": {
+                                "type": "number"
+                            },
+                            "p95": {
+                                "type": "number"
+                            },
+                            "mean": {
+                                "type": "number"
+                            },
+                            "std": {
+                                "type": "number",
+                                "minimum": 0
+                            }
+                        }
+                    }
+                },
+                "rank_stability": {
+                    "type": "object",
+                    "minProperties": 1,
+                    "additionalProperties": {
+                        "type": "object",
+                        "minProperties": 1,
+                        "additionalProperties": false,
+                        "patternProperties": {
+                            "^top[1-9][0-9]*$": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                            }
+                        }
+                    }
+                },
+                "total_conversion_value": {
+                    "type": "number"
+                },
+                "generated_at": {
+                    "type": "string"
+                },
+                "seed": {
+                    "type": "number"
+                },
+                "method": {
+                    "const": "paths_bootstrap"
+                }
+            }
+        },
+        "SensitivityLambda": {
+            "type": "object",
+            "required": [
+                "type",
+                "version",
+                "lambda_grid",
+                "hybrid_value_series",
+                "sensitivity",
+                "total_conversion_value"
+            ],
+            "properties": {
+                "type": {
+                    "const": "sensitivity_lambda"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "lambda_grid": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "hybrid_value_series": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "sensitivity": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object",
+                        "required": [
+                            "range",
+                            "relative_range"
+                        ],
+                        "properties": {
+                            "range": {
+                                "type": "number"
+                            },
+                            "relative_range": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                "total_conversion_value": {
+                    "type": "number"
+                },
+                "generated_at": {
+                    "type": "string"
+                },
+                "alpha_used": {
+                    "type": "number"
+                },
+                "base_weights": {
+                    "type": "object"
+                }
+            }
+        },
+        "UQTransitionDirichlet": {
+            "type": "object",
+            "required": [
+                "type",
+                "version",
+                "B",
+                "alpha",
+                "dirichlet_prior",
+                "confidence_intervals",
+                "rank_stability",
+                "total_conversion_value",
+                "uq_target",
+                "posterior"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "const": "uq_transition_dirichlet"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "B": {
+                    "type": "integer",
+                    "minimum": 20,
+                    "description": "Number of Dirichlet samples from posterior T"
+                },
+                "alpha": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "dirichlet_prior": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Concentration parameter α₀ (e.g., 0.1 = weak, 1 = neutral)"
+                },
+                "uq_target": {
+                    "const": "transition_matrix",
+                    "description": "Clarifies that uncertainty is from sampling T, not paths"
+                },
+                "posterior": {
+                    "const": "dirichlet_rowwise",
+                    "description": "Each row sampled independently from Dirichlet posterior"
+                },
+                "counts_semantics": {
+                    "enum": [
+                        "weighted_pseudocounts",
+                        "raw_counts"
+                    ],
+                    "description": "How psychographic weights are treated in posterior"
+                },
+                "confidence_intervals": {
+                    "type": "object",
+                    "minProperties": 1,
+                    "additionalProperties": {
+                        "type": "object",
+                        "required": [
+                            "p05",
+                            "p25",
+                            "p50",
+                            "p75",
+                            "p95",
+                            "mean",
+                            "std"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "p05": {
+                                "type": "number"
+                            },
+                            "p25": {
+                                "type": "number"
+                            },
+                            "p50": {
+                                "type": "number"
+                            },
+                            "p75": {
+                                "type": "number"
+                            },
+                            "p95": {
+                                "type": "number"
+                            },
+                            "mean": {
+                                "type": "number"
+                            },
+                            "std": {
+                                "type": "number",
+                                "minimum": 0
+                            }
+                        }
+                    }
+                },
+                "rank_stability": {
+                    "type": "object",
+                    "minProperties": 1,
+                    "additionalProperties": {
+                        "type": "object",
+                        "minProperties": 1,
+                        "additionalProperties": false,
+                        "patternProperties": {
+                            "^top[1-9][0-9]*$": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1
+                            }
+                        }
+                    }
+                },
+                "total_conversion_value": {
+                    "type": "number"
+                },
+                "generated_at": {
+                    "type": "string"
+                },
+                "seed": {
+                    "type": "number"
+                },
+                "method": {
+                    "const": "transition_dirichlet"
+                },
+                "row_stochastic_max_abs_error": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Max abs(sum(row) - 1) across all sampled matrices"
+                },
+                "min_entry": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Minimum entry across all sampled T matrices"
+                },
+                "max_entry": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Maximum entry across all sampled T matrices"
+                }
+            }
+        },
+        "SensitivityLocal": {
+            "type": "object",
+            "required": [
+                "type",
+                "version",
+                "operating_point",
+                "gradients",
+                "elasticities",
+                "step_sizes",
+                "total_conversion_value",
+                "generated_at"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "const": "sensitivity_local"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "operating_point": {
+                    "type": "object",
+                    "required": [
+                        "alpha",
+                        "lambda",
+                        "psychographic_weights"
+                    ],
+                    "properties": {
+                        "alpha": {
+                            "type": "number"
+                        },
+                        "lambda": {
+                            "type": "number"
+                        },
+                        "psychographic_weights": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                "gradients": {
+                    "type": "object",
+                    "description": "∂(attribution)/∂(parameter) via finite differences",
+                    "required": [
+                        "alpha",
+                        "lambda",
+                        "weights"
+                    ],
+                    "properties": {
+                        "alpha": {
+                            "type": "object",
+                            "description": "∂(attrib[channel])/∂α at α₀, keys are channel names",
+                            "additionalProperties": {
+                                "type": "object",
+                                "required": [
+                                    "value",
+                                    "delta_alpha",
+                                    "method"
+                                ],
+                                "properties": {
+                                    "value": {
+                                        "type": "number"
+                                    },
+                                    "delta_alpha": {
+                                        "type": "number"
+                                    },
+                                    "method": {
+                                        "enum": [
+                                            "centered",
+                                            "one_sided_forward",
+                                            "one_sided_backward"
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "lambda": {
+                            "type": "object",
+                            "description": "∂(attrib[channel])/∂λ at λ₀, keys are channel names",
+                            "additionalProperties": {
+                                "type": "object",
+                                "required": [
+                                    "value",
+                                    "delta_lambda"
+                                ],
+                                "properties": {
+                                    "value": {
+                                        "type": "number"
+                                    },
+                                    "delta_lambda": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        },
+                        "weights": {
+                            "type": "object",
+                            "description": "Structure: context_key -> channel -> gradient value",
+                            "additionalProperties": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                },
+                "elasticities": {
+                    "type": "object",
+                    "description": "% change in attrib / % change in param",
+                    "required": [
+                        "alpha",
+                        "lambda",
+                        "weights"
+                    ],
+                    "properties": {
+                        "alpha": {
+                            "type": "object",
+                            "description": "Elasticity w.r.t. alpha, keys are channel names",
+                            "additionalProperties": {
+                                "type": [
+                                    "number",
+                                    "null"
+                                ],
+                                "description": "null if baseline attribution near zero"
+                            }
+                        },
+                        "lambda": {
+                            "type": "object",
+                            "description": "Elasticity w.r.t. lambda, keys are channel names",
+                            "additionalProperties": {
+                                "type": [
+                                    "number",
+                                    "null"
+                                ]
+                            }
+                        },
+                        "weights": {
+                            "type": "object",
+                            "description": "Structure: context_key -> channel -> elasticity",
+                            "additionalProperties": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": [
+                                        "number",
+                                        "null"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "step_sizes": {
+                    "type": "object",
+                    "required": [
+                        "delta_alpha",
+                        "delta_lambda",
+                        "delta_weight_pct"
+                    ],
+                    "properties": {
+                        "delta_alpha": {
+                            "type": "number"
+                        },
+                        "delta_lambda": {
+                            "type": "number"
+                        },
+                        "delta_weight_pct": {
+                            "type": "number",
+                            "description": "Percent perturbation for weight gradients (e.g., 0.1 = 10%)"
+                        }
+                    }
+                },
+                "total_conversion_value": {
+                    "type": "number"
+                },
+                "generated_at": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

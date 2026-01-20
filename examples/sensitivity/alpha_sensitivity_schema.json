@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Alpha Sensitivity Analysis Artifact",
+  "description": "Results from α parameter sweep showing attribution stability across causality-fairness spectrum",
+  "type": "object",
+  "required": ["ir_version", "alpha_range", "channel_order_stability", "attribution_shifts"],
+  "properties": {
+    "ir_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "alpha_range": {
+      "type": "object",
+      "properties": {
+        "min": { "type": "number", "minimum": 0, "maximum": 1 },
+        "max": { "type": "number", "minimum": 0, "maximum": 1 },
+        "step": { "type": "number", "minimum": 0.001, "maximum": 0.1 },
+        "points": { "type": "integer", "minimum": 2 }
+      }
+    },
+    "default_alpha": { "type": "number", "minimum": 0, "maximum": 1 },
+    "channel_order_stability": {
+      "type": "object",
+      "description": "Channel ranking changes across α sweep",
+      "properties": {
+        "stable_channels": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Channels that never change rank position"
+        },
+        "swing_channels": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Channels that change rank positions"
+        },
+        "max_rank_change": {
+          "type": "integer",
+          "description": "Maximum rank shift observed"
+        }
+      }
+    },
+    "attribution_shifts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "channel": { "type": "string" },
+          "min_share": { "type": "number" },
+          "max_share": { "type": "number" },
+          "share_range": { "type": "number" },
+          "direction": {
+            "type": "string",
+            "enum": ["increases_with_alpha", "decreases_with_alpha", "non_monotonic", "stable"]
+          }
+        }
+      }
+    },
+    "optimal_alpha": {
+      "type": "object",
+      "description": "Alpha value that optimizes stability metric",
+      "properties": {
+        "value": { "type": "number" },
+        "criterion": { "type": "string" },
+        "stability_score": { "type": "number" }
+      }
+    },
+    "recommendation": {
+      "type": "string",
+      "description": "Guidance on alpha selection based on use case"
+    }
+  }
+}

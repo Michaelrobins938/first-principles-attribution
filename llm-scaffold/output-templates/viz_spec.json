@@ -1,0 +1,141 @@
+{
+  "$schema": "viz_spec/1.0.0",
+  "generated_from_ir_version": "1.0.0",
+  "generated_at": "REPLACE_WITH_TIMESTAMP",
+  
+  "charts": {
+    "hybrid_attribution_bar": {
+      "type": "bar",
+      "title": "Hybrid Attribution by Channel ($)",
+      "x_axis": "channel",
+      "y_axis": "value",
+      "y_label": "Attributed Revenue ($)",
+      "data": [
+        { "channel": "Search", "value": 56.25, "color": "#6366f1" },
+        { "channel": "Direct", "value": 39.75, "color": "#ec4899" },
+        { "channel": "Email", "value": 33.75, "color": "#8b5cf6" },
+        { "channel": "Affiliate", "value": 12.00, "color": "#14b8a6" },
+        { "channel": "Social", "value": 8.25, "color": "#f59e0b" }
+      ]
+    },
+    
+    "share_comparison_grouped_bar": {
+      "type": "grouped_bar",
+      "title": "Markov vs Shapley Share Comparison (%)",
+      "x_axis": "channel",
+      "y_axis": "share_percent",
+      "y_label": "Share (%)",
+      "series": [
+        { "name": "Markov Share", "color": "#ec4899" },
+        { "name": "Shapley Share", "color": "#6366f1" }
+      ],
+      "data": [
+        { "channel": "Search", "markov": 40.0, "shapley": 35.0 },
+        { "channel": "Direct", "markov": 25.0, "shapley": 28.0 },
+        { "channel": "Email", "markov": 20.0, "shapley": 22.0 },
+        { "channel": "Affiliate", "markov": 8.0, "shapley": 8.0 },
+        { "channel": "Social", "markov": 7.0, "shapley": 7.0 }
+      ]
+    },
+    
+    "revenue_pie": {
+      "type": "pie",
+      "title": "Revenue Share Breakdown",
+      "data": [
+        { "name": "Search", "value": 56.25, "percent": 37.5, "color": "#6366f1" },
+        { "name": "Direct", "value": 39.75, "percent": 26.5, "color": "#ec4899" },
+        { "name": "Email", "value": 33.75, "percent": 22.5, "color": "#8b5cf6" },
+        { "name": "Affiliate", "value": 12.00, "percent": 8.0, "color": "#14b8a6" },
+        { "name": "Social", "value": 8.25, "percent": 5.5, "color": "#f59e0b" }
+      ]
+    },
+    
+    "transition_heatmap": {
+      "type": "heatmap",
+      "title": "Transition Probability Matrix",
+      "x_axis": "to_state",
+      "y_axis": "from_state",
+      "color_scale": {
+        "min": 0,
+        "max": 1,
+        "colors": ["#f8fafc", "#6366f1"]
+      },
+      "states": ["START", "Affiliate", "Direct", "Email", "Search", "Social", "CONVERSION", "NULL"],
+      "matrix": "REPLACE_WITH_IR_TRANSITION_MATRIX"
+    },
+    
+    "alpha_sensitivity": {
+      "type": "line",
+      "title": "Hybrid Share Sensitivity to α",
+      "x_axis": "alpha",
+      "y_axis": "share",
+      "description": "How channel shares change as α moves from 0 (pure Shapley) to 1 (pure Markov)",
+      "series": [
+        { "name": "Search", "color": "#6366f1" },
+        { "name": "Direct", "color": "#ec4899" },
+        { "name": "Email", "color": "#8b5cf6" }
+      ],
+      "data": [
+        { "alpha": 0.0, "Search": 35.0, "Direct": 28.0, "Email": 22.0 },
+        { "alpha": 0.25, "Search": 36.25, "Direct": 27.25, "Email": 21.5 },
+        { "alpha": 0.5, "Search": 37.5, "Direct": 26.5, "Email": 21.0 },
+        { "alpha": 0.75, "Search": 38.75, "Direct": 25.75, "Email": 20.5 },
+        { "alpha": 1.0, "Search": 40.0, "Direct": 25.0, "Email": 20.0 }
+      ]
+    },
+    
+    "psychographic_weights": {
+      "type": "horizontal_bar",
+      "title": "Psychographic Context Weights",
+      "x_axis": "weight",
+      "y_axis": "context",
+      "neutral_line": 1.0,
+      "data": [
+        { "context": "High Intent Search", "weight": 1.5, "type": "amplifier" },
+        { "context": "Desktop Checkout", "weight": 1.3, "type": "amplifier" },
+        { "context": "Standard Email Click", "weight": 1.1, "type": "amplifier" },
+        { "context": "Standard Search", "weight": 1.0, "type": "neutral" },
+        { "context": "Low Intent Social", "weight": 0.7, "type": "dampener" }
+      ]
+    }
+  },
+  
+  "kpi_cards": [
+    {
+      "label": "Total Revenue",
+      "value": "$150",
+      "subtext": "2 conversions",
+      "icon": "target",
+      "gradient": "indigo"
+    },
+    {
+      "label": "Top Channel",
+      "value": "Search",
+      "subtext": "$56.25 attributed",
+      "icon": "zap",
+      "gradient": "pink"
+    },
+    {
+      "label": "Conversion Rate",
+      "value": "50%",
+      "subtext": "1/2 paths",
+      "icon": "trending-up",
+      "gradient": "purple"
+    },
+    {
+      "label": "Avg per Channel",
+      "value": "$30.00",
+      "subtext": "5 channels",
+      "icon": "activity",
+      "gradient": "teal"
+    }
+  ],
+  
+  "top_transitions": [
+    { "from": "START", "to": "Search", "probability": 0.52, "rank": 1 },
+    { "from": "Direct", "to": "CONVERSION", "probability": 0.78, "rank": 2 },
+    { "from": "Email", "to": "Direct", "probability": 0.44, "rank": 3 },
+    { "from": "Search", "to": "Email", "probability": 0.31, "rank": 4 },
+    { "from": "Affiliate", "to": "Direct", "probability": 0.35, "rank": 5 }
+  ]
+}

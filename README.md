@@ -253,6 +253,62 @@ First-Principles provides **causal measurement** (not just correlation), **axiom
 
 ---
 
+## 🧠 LLM Interpretation Layer
+
+This repository includes a complete **LLM scaffold** for interpreting attribution results. The scaffold enables AI-powered analysis of IR artifacts.
+
+### What's Included
+
+```
+llm-scaffold/
+├── ir-schema.json              # JSON Schema for IR validation
+├── system-prompt.md            # LLM identity and constraints
+├── analysis-prompts.md         # Modular task prompts (A-G)
+├── user-prompt-template.md     # Example usage template
+└── output-templates/
+    ├── diagrams.mmd           # Mermaid diagram source
+    └── viz_spec.json          # Chart specifications
+```
+
+### How It Works
+
+1. **Attribution Engine** produces IR JSON artifacts
+2. **LLM Scaffold** interprets IR into human-readable insights
+3. **Output Templates** generate 5 file types:
+   - `executive_summary.md` - Stakeholder summary
+   - `model_decomposition.md` - Technical breakdown
+   - `diagrams.mmd` - Mermaid flowcharts
+   - `viz_spec.json` - Chart data for frontend
+   - `risk_and_assumptions.md` - Caveats and stress tests
+
+### Example Usage
+
+```python
+from llm_scaffold import generate_analysis
+
+# Attribution produces IR artifact
+ir_artifact = run_attribution(events)
+
+# LLM interprets IR into comprehensive analysis
+analysis = generate_analysis(
+    ir_artifact=ir_artifact,
+    task="executive_summary",  # or "full_analysis", "technical_deep_dive"
+    audience="stakeholders"     # or "technical_team"
+)
+
+# Outputs: executive_summary.md, diagrams.mmd, viz_spec.json, etc.
+```
+
+### Production Hardening
+
+All IR artifacts include:
+- **Version stamping** (`ir_version: "1.0.0"`)
+- **Invariant checks** (row-stochastic, sums to 1.0)
+- **Confidence intervals** (90% CI from bootstrap resampling)
+- **Rank stability** metrics
+
+---
+
 ## Technical Stack
 
 ![Tech Stack](docs/images/tech-stack.png)
