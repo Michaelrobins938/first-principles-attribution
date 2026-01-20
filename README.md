@@ -1,5 +1,7 @@
 # First-Principles Attribution Engine
 
+![First-Principles Attribution Banner](docs/images/banner.png)
+
 > A mathematically rigorous, production-ready marketing attribution system combining **Markov chains**, **Shapley value theory**, and **Bayesian uncertainty quantification**.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -8,7 +10,7 @@
 
 ---
 
-## What This Is
+## 🎯 What This Is
 
 A **defensible attribution system** that moves beyond heuristics (last-touch, linear, time-decay) to provide:
 
@@ -43,6 +45,19 @@ src/dirichlet_uq_temp.js
 # Example output
 examples/sample_attribution_result.json
 ```
+
+---
+
+## 🏗️ System Architecture
+
+The platform uses a multi-layer architecture combining probabilistic modeling, game theory, and Bayesian statistics:
+
+1. **Data Ingestion** - Universal adapters for Facebook, GA4, CSV, and Browser History
+2. **Event Standardization** - Conversion to UniversalEvent schema
+3. **Attribution Engines** - Parallel Markov and Shapley computation
+4. **Hybrid Blending** - Tunable α parameter for causality/fairness balance
+5. **Uncertainty Quantification** - Dual UQ with Bootstrap and Dirichlet methods
+6. **Validation & Export** - Schema-validated JSON artifacts
 
 ---
 
@@ -112,6 +127,21 @@ examples/sample_attribution_result.json
 - Causal measurement for decision-making
 - Audit-trail compliance (schema-validated artifacts)
 - Privacy-preserving analytics
+
+---
+
+## 🆚 Comparison with Traditional Methods
+
+| Feature | Last-Touch | Linear | Time-Decay | **First-Principles** |
+|---------|-----------|--------|------------|---------------------|
+| **Causality** | ❌ | ❌ | ❌ | ✅ Markov chains |
+| **Fairness** | ❌ | Partial | Partial | ✅ Shapley values |
+| **Uncertainty** | ❌ | ❌ | ❌ | ✅ Dual UQ |
+| **Validation** | ❌ | ❌ | ❌ | ✅ Full suite |
+| **Causal Inference** | ❌ | ❌ | ❌ | ✅ 5 methods |
+| **Multi-Source** | Limited | Limited | Limited | ✅ Universal adapters |
+
+First-Principles provides **causal measurement** (not just correlation), **axiomatic fairness** (via game theory), and **uncertainty quantification** (confidence intervals on all scores).
 
 ---
 
