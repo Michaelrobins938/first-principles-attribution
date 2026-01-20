@@ -115,6 +115,50 @@ All adapters convert to the **UniversalEvent** schema with timestamp (ISO 8601),
 
 ---
 
+## 📦 Supported Data Sources
+
+| Source | Format | Required Fields | Example Usage |
+|--------|--------|-----------------|---------------|
+| **Google Analytics 4** | JSON (BigQuery export) | `event_name`, `event_timestamp`, `user_pseudo_id`, `traffic_source` | `GoogleAnalyticsAdapter('ga4_export.json')` |
+| **Facebook** | JSON (Data Export) | `timestamp`, `type`, `name` (off-Facebook activity) | `FacebookAdapter('facebook_export/')` |
+| **CSV** | Any CSV | `timestamp`, `user_id`, `channel` | `CSVAdapter('data.csv')` |
+| **Browser History** | JSON (Chrome/Firefox) | `URL`, `title`, `visitTime` | `BrowserHistoryAdapter('history.json')` |
+
+### UniversalEvent Schema
+
+All adapters convert to this common format:
+
+```python
+UniversalEvent(
+    timestamp: str,          # ISO 8601 format
+    user_id: str,            # SHA256 hashed (privacy-preserving)
+    channel: str,            # Normalized taxonomy (Paid Search, Organic Social, etc.)
+    event_type: str,         # pageview, click, engagement, conversion
+    context: dict,           # device, intent_signal, session_depth, source_platform
+    conversion_value: float, # 0.0 unless conversion event
+    metadata: dict           # Source-specific fields
+)
+```
+
+### Usage Example
+
+```python
+from src.adapters import FacebookAdapter, GoogleAnalyticsAdapter, merge_event_streams
+
+# Parse multiple sources
+fb = FacebookAdapter('facebook_export.json')
+ga = GoogleAnalyticsAdapter('ga4_export.json')
+
+# Get universal events
+fb_events = fb.parse()
+ga_events = ga.parse()
+
+# Combine and feed to attribution engine
+all_events = merge_event_streams(fb_events, ga_events)
+```
+
+---
+
 ## Example Output
 
 ```json
