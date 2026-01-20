@@ -166,6 +166,34 @@ First-Principles provides **causal measurement** (not just correlation), **axiom
 
 ---
 
+## 📊 Visualizations Gallery
+
+### Channel Attribution Results
+
+![Channel Attribution Results](docs/images/channel-attribution-results.png)
+
+### Uncertainty Quantification
+
+![Uncertainty Quantification](docs/images/uncertainty-quantification.png)
+
+### Markov Chain Visualization
+
+![Markov Chain](docs/images/markov-chain-visualization.png)
+
+### Shapley Values
+
+![Shapley Values](docs/images/shapley-values.png)
+
+### Data Flow Diagram
+
+![Data Flow](docs/images/data-flow-diagram.png)
+
+### Validation Results
+
+![Validation Results](docs/images/validation-results.png)
+
+---
+
 ## Technical Stack
 
 | Component | Technology |
