@@ -1,0 +1,69 @@
+{
+  "ir_version": "1.0.0",
+  "type": "attribution_result",
+  "alpha": 0.5,
+  "hybrid_share": {
+    "Search": 0.42,
+    "Email": 0.25,
+    "Direct": 0.18,
+    "Social": 0.10,
+    "Display": 0.05
+  },
+  "hybrid_value": {
+    "Search": 63.00,
+    "Email": 37.50,
+    "Direct": 27.00,
+    "Social": 15.00,
+    "Display": 7.50
+  },
+  "confidence_intervals": {
+    "Search": {
+      "p05": 38.46,
+      "p25": 52.31,
+      "p50": 63.12,
+      "p75": 74.88,
+      "p95": 87.21
+    },
+    "Email": {
+      "p05": 22.18,
+      "p25": 30.54,
+      "p50": 37.62,
+      "p75": 44.71,
+      "p95": 52.83
+    },
+    "Direct": {
+      "p05": 15.39,
+      "p25": 21.92,
+      "p50": 27.05,
+      "p75": 32.18,
+      "p95": 38.71
+    }
+  },
+  "rank_stability": {
+    "Search": {
+      "top1": 0.85,
+      "top2": 0.98,
+      "top3": 1.00
+    },
+    "Email": {
+      "top1": 0.12,
+      "top2": 0.89,
+      "top3": 0.99
+    },
+    "Direct": {
+      "top1": 0.03,
+      "top2": 0.13,
+      "top3": 0.94
+    }
+  },
+  "total_conversion_value": 150.00,
+  "path_count": 1247,
+  "unique_channels": 5,
+  "generated_at": "2024-12-12T00:00:00Z",
+  "invariants_validated": {
+    "shares_sum_to_one": true,
+    "values_sum_to_total": true,
+    "row_stochastic_error": 4.44e-16,
+    "quantile_ordering_valid": true
+  }
+}
