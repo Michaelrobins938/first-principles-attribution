@@ -80,6 +80,21 @@ The platform uses a multi-layer architecture combining probabilistic modeling, g
 
 ---
 
+## 🔌 Universal Data Adapters
+
+![Adapter Ecosystem](docs/images/adapter-ecosystem.png)
+
+| Adapter | Input Format | Use Case |
+|---------|-------------|----------|
+| **FacebookAdapter** | JSON export | Social media attribution |
+| **GoogleAnalyticsAdapter** | GA4/BigQuery | Web analytics |
+| **CSVAdapter** | Generic CSV | Custom data sources |
+| **BrowserHistoryAdapter** | Chrome/Firefox/Safari | Personal browsing analysis |
+
+All adapters convert to the **UniversalEvent** schema with timestamp (ISO 8601), user_id (SHA256 hashed), channel taxonomy, and context signals.
+
+---
+
 ## Key Features
 
 ### Hybrid Attribution Model
@@ -160,7 +175,7 @@ The platform uses a multi-layer architecture combining probabilistic modeling, g
 | **Causal Inference** | ❌ | ❌ | ❌ | ✅ 5 methods |
 | **Multi-Source** | Limited | Limited | Limited | ✅ Universal adapters |
 
-![Comparison Chart](docs/images/comparison-chart.png)
+![Dashboard Mockup](docs/images/dashboard.png)
 
 First-Principles provides **causal measurement** (not just correlation), **axiomatic fairness** (via game theory), and **uncertainty quantification** (confidence intervals on all scores).
 
@@ -195,6 +210,8 @@ First-Principles provides **causal measurement** (not just correlation), **axiom
 ---
 
 ## Technical Stack
+
+![Tech Stack](docs/images/tech-stack.png)
 
 | Component | Technology |
 |-----------|------------|

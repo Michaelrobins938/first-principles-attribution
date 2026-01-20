@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="400" viewBox="0 0 700 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="400" fill="url(#bg)"/>
+  
+  <text x="350" y="30" font-family="Arial, sans-serif" font-size="18" fill="#1e293b" text-anchor="middle" font-weight="bold">Technical Stack</text>
+  
+  <!-- Row 1 -->
+  <!-- Core Engine -->
+  <rect x="50" y="50" width="180" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="140" y="75" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" text-anchor="middle" font-weight="bold">Core Engine</text>
+  <text x="140" y="95" font-family="Arial, sans-serif" font-size="11" fill="#92400e" text-anchor="middle">JavaScript ES6+</text>
+  <text x="140" y="120" font-family="Arial, sans-serif" font-size="9" fill="#78716c" text-anchor="middle">Async/await patterns</text>
+  
+  <!-- Statistics -->
+  <rect x="260" y="50" width="180" height="90" rx="8" fill="#dbeafe" stroke="#4299e1" stroke-width="2"/>
+  <text x="350" y="75" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" text-anchor="middle" font-weight="bold">Statistics</text>
+  <text x="350" y="95" font-family="Arial, sans-serif" font-size="11" fill="#1d4ed8" text-anchor="middle">Marsaglia-Tsang Gamma</text>
+  <text x="350" y="120" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Box-Muller Transform</text>
+  
+  <!-- Validation -->
+  <rect x="470" y="50" width="180" height="90" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="560" y="75" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" text-anchor="middle" font-weight="bold">Validation</text>
+  <text x="560" y="95" font-family="Arial, sans-serif" font-size="11" fill="#047857" text-anchor="middle">JSON Schema</text>
+  <text x="560" y="120" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Draft-07 standard</text>
+  
+  <!-- Row 2 -->
+  <!-- UI Framework -->
+  <rect x="50" y="160" width="180" height="90" rx="8" fill="#dbeafe" stroke="#4299e1" stroke-width="2"/>
+  <text x="140" y="185" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" text-anchor="middle" font-weight="bold">UI Framework</text>
+  <text x="140" y="205" font-family="Arial, sans-serif" font-size="11" fill="#1d4ed8" text-anchor="middle">React 18 + Next.js</text>
+  <text x="140" y="230" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Server-side rendering</text>
+  
+  <!-- Charts -->
+  <rect x="260" y="160" width="180" height="90" rx="8" fill="#ede9fe" stroke="#a78bfa" stroke-width="2"/>
+  <text x="350" y="185" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" text-anchor="middle" font-weight="bold">Charts</text>
+  <text x="350" y="205" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed" text-anchor="middle">Recharts</text>
+  <text x="350" y="230" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Interactive visualizations</text>
+  
+  <!-- Data Processing -->
+  <rect x="470" y="160" width="180" height="90" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+  <text x="560" y="185" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" text-anchor="middle" font-weight="bold">Data Processing</text>
+  <text x="560" y="205" font-family="Arial, sans-serif" font-size="11" fill="#be185d" text-anchor="middle">Python 3.9+</text>
+  <text x="560" y="230" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Backend computation</text>
+  
+  <!-- Row 3 -->
+  <!-- Causal Methods -->
+  <rect x="50" y="270" width="180" height="90" rx="8" fill="#dbeafe" stroke="#4299e1" stroke-width="2"/>
+  <text x="140" y="295" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" text-anchor="middle" font-weight="bold">Causal Methods</text>
+  <text x="140" y="315" font-family="Arial, sans-serif" font-size="11" fill="#1d4ed8" text-anchor="middle">Bayesian Statistics</text>
+  <text x="140" y="340" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Posterior inference</text>
+  
+  <!-- Adapters -->
+  <rect x="260" y="270" width="180" height="90" rx="8" fill="#ffedd5" stroke="#f97316" stroke-width="2"/>
+  <text x="350" y="295" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" text-anchor="middle" font-weight="bold">Adapters</text>
+  <text x="350" y="315" font-family="Arial, sans-serif" font-size="11" fill="#c2410c" text-anchor="middle">Universal I/O</text>
+  <text x="350" y="340" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Multi-source connectivity</text>
+  
+  <!-- Storage -->
+  <rect x="470" y="270" width="180" height="90" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="560" y="295" font-family="Arial, sans-serif" font-size="12" fill="#1e293b" text-anchor="middle" font-weight="bold">Storage</text>
+  <text x="560" y="315" font-family="Arial, sans-serif" font-size="11" fill="#047857" text-anchor="middle">Schema JSON</text>
+  <text x="560" y="340" font-family="Arial, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Validated output</text>
+</svg>
