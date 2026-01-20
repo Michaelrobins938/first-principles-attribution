@@ -356,7 +356,87 @@ The framework supports extensions:
 
 ---
 
-## 7. Limitations (Explicit)
+## 7. Limitations and Causal Interpretation
+
+> **CRITICAL DISCLAIMER:** This section documents what the model does NOT prove.
+> Read this before making strategic decisions based on attribution outputs.
+
+### 7.0 What This Model Does NOT Prove
+
+#### 7.0.1 Causal Direction
+
+We **cannot distinguish** between:
+
+- "Email **caused** the purchase"
+- "Users who will purchase **tend to check** email"
+
+The Markov removal effect measures **contribution under the observed data distribution**, not causal intervention effects. A channel's high removal effect could reflect:
+
+1. **True causation**: The channel genuinely influences conversion
+2. **Selection bias**: High-intent users prefer that channel
+3. **Confounding**: External factors (e.g., TV ads) drive both channel visits and conversions
+
+#### 7.0.2 Confounders Not Controlled
+
+We do **not** control for:
+
+| Confounder | Impact |
+|------------|--------|
+| **User intent** | Users who've already decided to buy may visit certain channels |
+| **External factors** | Offline ads, word-of-mouth, seasonality |
+| **Selection bias** | Who uses which channels is not random |
+| **Temporal confounds** | Macro trends affecting all channels |
+
+#### 7.0.3 Counterfactual Validity
+
+Removal effects assume:
+
+- **Channel independence**: Removing Search doesn't change Email's effectiveness (often false)
+- **Stable transitions**: The transition matrix remains valid under intervention (questionable)
+- **No substitution**: Users wouldn't find alternative paths (unrealistic)
+
+These assumptions limit the validity of statements like "Removing Search would cost us $X."
+
+### 7.0.4 What We CAN Claim
+
+| Claim Type | Validity | Example |
+|------------|----------|---------|
+| **Descriptive accuracy** | ✅ Strong | "Model captures observed journey patterns" |
+| **Contribution quantification** | ✅ Strong | "Given observed sequences, Search contributes 42%" |
+| **Relative ranking** | ✅ Moderate | "Search contributes more than Display" |
+| **Uncertainty transparency** | ✅ Strong | "We're 85% confident Search is #1" |
+| **Absolute causal effects** | ❌ Invalid | "Search **caused** $63 in revenue" |
+| **Intervention predictions** | ❌ Invalid | "Removing Search loses $63" |
+| **Budget optimization** | ⚠️ Caution | "Shift budget from Display to Search" |
+
+### 7.0.5 When to Trust This Model
+
+**Trust the model for:**
+- ✅ Relative channel ranking (which matters more)
+- ✅ Sensitivity analysis (how confident should we be?)
+- ✅ Identifying channels that **might** be important
+- ✅ Comparing attribution methodologies
+
+**Do NOT trust the model for:**
+- ❌ Absolute dollar values ("Search is worth exactly $63")
+- ❌ Intervention planning ("Cut Display spend by 50%")
+- ❌ Causal claims in stakeholder reports
+
+### 7.0.6 Path to Stronger Causal Claims
+
+To move from **contribution** to **causation**, you need:
+
+| Method | What It Provides | Feasibility |
+|--------|------------------|-------------|
+| **Randomized A/B tests** | Ground truth causal effects | Gold standard, but expensive |
+| **Propensity score matching** | Quasi-experimental control | Requires rich user features |
+| **Instrumental variables** | Exogenous variation | Hard to find valid instruments |
+| **Regression discontinuity** | Local causal effects | Needs sharp thresholds |
+| **Synthetic control** | Counterfactual comparison | Needs donor pool |
+
+**Recommendation:** Use this model to **generate hypotheses**, then validate top channels with targeted A/B tests.
+
+---
 
 ### 7.1 Documented Assumptions
 
