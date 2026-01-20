@@ -1,0 +1,25 @@
+[
+  {
+    "event_name": "page_view",
+    "event_timestamp": 1705316400000000,
+    "user_pseudo_id": "user_ga_001",
+    "traffic_source": {"source": "google", "medium": "organic"},
+    "device": {"category": "desktop"}
+  },
+  {
+    "event_name": "add_to_cart",
+    "event_timestamp": 1705317000000000,
+    "user_pseudo_id": "user_ga_001",
+    "traffic_source": {"source": "google", "medium": "organic"},
+    "device": {"category": "desktop"},
+    "event_params": [{"key": "items", "value": "1"}]
+  },
+  {
+    "event_name": "purchase",
+    "event_timestamp": 1705317600000000,
+    "user_pseudo_id": "user_ga_001",
+    "traffic_source": {"source": "google", "medium": "organic"},
+    "device": {"category": "desktop"},
+    "ecommerce": {"purchase": {"value": 199.99}}
+  }
+]
