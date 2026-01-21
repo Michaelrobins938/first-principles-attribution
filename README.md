@@ -1,6 +1,5 @@
 
 ![First-Principles Attribution Engine](docs/images/banner.png)
-# First-Principles Attribution Engine
 
 > A mathematically rigorous, production-ready marketing attribution system combining **Markov chains**, **Shapley value theory**, and **Bayesian uncertainty quantification**.
 
@@ -10,7 +9,7 @@
 
 ---
 
-## What## What This Is
+## What This Is
 
 An open-source, production-ready marketing attribution system designed to provide mathematically rigorous, transparent, and defensible credit allocation across channels in customer journeys. This project moves beyond simplistic heuristic models (last-touch, linear, time-decay) by integrating **probabilistic modeling**, **game theory**, and **uncertainty quantification** to bridge the epistemic gap between correlation-based measurements and true causal contributions.
 
