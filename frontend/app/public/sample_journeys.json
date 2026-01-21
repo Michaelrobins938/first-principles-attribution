@@ -1,0 +1,127 @@
+{
+  "journeys": [
+    {
+      "journey_id": "j001",
+      "path": [
+        {"channel": "facebook", "timestamp": "2024-01-15T10:00:00Z", "context": "social_feed"},
+        {"channel": "google", "timestamp": "2024-01-15T10:15:00Z", "context": "search"},
+        {"channel": "direct", "timestamp": "2024-01-15T10:30:00Z", "context": "direct_visit"},
+        {"channel": "email", "timestamp": "2024-01-16T09:00:00Z", "context": "newsletter"},
+        {"channel": "direct", "timestamp": "2024-01-16T14:00:00Z", "context": "bookmark"}
+      ],
+      "conversion": true,
+      "conversion_value": 150.00,
+      "num_touchpoints": 5,
+      "duration_hours": 28
+    },
+    {
+      "journey_id": "j002",
+      "path": [
+        {"channel": "google", "timestamp": "2024-01-15T11:00:00Z", "context": "search"},
+        {"channel": "facebook", "timestamp": "2024-01-15T11:30:00Z", "context": "retargeting"},
+        {"channel": "direct", "timestamp": "2024-01-15T15:00:00Z", "context": "direct_visit"}
+      ],
+      "conversion": true,
+      "conversion_value": 89.99,
+      "num_touchpoints": 3,
+      "duration_hours": 4
+    },
+    {
+      "journey_id": "j003",
+      "path": [
+        {"channel": "email", "timestamp": "2024-01-14T08:00:00Z", "context": "promotional"},
+        {"channel": "google", "timestamp": "2024-01-14T12:00:00Z", "context": "brand_search"},
+        {"channel": "direct", "timestamp": "2024-01-14T14:00:00Z", "context": "direct_visit"}
+      ],
+      "conversion": true,
+      "conversion_value": 250.00,
+      "num_touchpoints": 3,
+      "duration_hours": 6
+    },
+    {
+      "journey_id": "j004",
+      "path": [
+        {"channel": "facebook", "timestamp": "2024-01-16T09:00:00Z", "context": "ad_click"},
+        {"channel": "google", "timestamp": "2024-01-16T09:30:00Z", "context": "comparison"},
+        {"channel": "email", "timestamp": "2024-01-17T10:00:00Z", "context": "reminder"},
+        {"channel": "direct", "timestamp": "2024-01-18T11:00:00Z", "context": "return_visit"}
+      ],
+      "conversion": true,
+      "conversion_value": 175.00,
+      "num_touchpoints": 4,
+      "duration_hours": 50
+    },
+    {
+      "journey_id": "j005",
+      "path": [
+        {"channel": "google", "timestamp": "2024-01-15T14:00:00Z", "context": "search"},
+        {"channel": "direct", "timestamp": "2024-01-15T16:00:00Z", "context": "direct_visit"}
+      ],
+      "conversion": true,
+      "conversion_value": 45.00,
+      "num_touchpoints": 2,
+      "duration_hours": 2
+    },
+    {
+      "journey_id": "j006",
+      "path": [
+        {"channel": "facebook", "timestamp": "2024-01-13T10:00:00Z", "context": "organic"},
+        {"channel": "direct", "timestamp": "2024-01-13T11:00:00Z", "context": "direct_visit"},
+        {"channel": "email", "timestamp": "2024-01-14T08:00:00Z", "context": "follow_up"},
+        {"channel": "google", "timestamp": "2024-01-15T10:00:00Z", "context": "search"},
+        {"channel": "direct", "timestamp": "2024-01-16T09:00:00Z", "context": "purchase"}
+      ],
+      "conversion": true,
+      "conversion_value": 320.00,
+      "num_touchpoints": 5,
+      "duration_hours": 71
+    },
+    {
+      "journey_id": "j007",
+      "path": [
+        {"channel": "email", "timestamp": "2024-01-16T07:00:00Z", "context": "abandoned_cart"},
+        {"channel": "facebook", "timestamp": "2024-01-16T19:00:00Z", "context": "retargeting"},
+        {"channel": "direct", "timestamp": "2024-01-17T08:00:00Z", "context": "direct_visit"}
+      ],
+      "conversion": true,
+      "conversion_value": 95.00,
+      "num_touchpoints": 3,
+      "duration_hours": 25
+    },
+    {
+      "journey_id": "j008",
+      "path": [
+        {"channel": "google", "timestamp": "2024-01-15T08:00:00Z", "context": "brand_search"},
+        {"channel": "facebook", "timestamp": "2024-01-15T10:00:00Z", "context": "social_proof"},
+        {"channel": "direct", "timestamp": "2024-01-15T14:00:00Z", "context": "direct_visit"}
+      ],
+      "conversion": true,
+      "conversion_value": 125.00,
+      "num_touchpoints": 3,
+      "duration_hours": 6
+    },
+    {
+      "journey_id": "j009",
+      "path": [
+        {"channel": "direct", "timestamp": "2024-01-14T12:00:00Z", "context": "direct_visit"}
+      ],
+      "conversion": false,
+      "conversion_value": 0,
+      "num_touchpoints": 1,
+      "duration_hours": 0
+    },
+    {
+      "journey_id": "j010",
+      "path": [
+        {"channel": "facebook", "timestamp": "2024-01-15T15:00:00Z", "context": "ad_click"},
+        {"channel": "google", "timestamp": "2024-01-15T16:00:00Z", "context": "research"},
+        {"channel": "email", "timestamp": "2024-01-16T09:00:00Z", "context": "coupon"},
+        {"channel": "direct", "timestamp": "2024-01-16T11:00:00Z", "context": "purchase"}
+      ],
+      "conversion": true,
+      "conversion_value": 210.00,
+      "num_touchpoints": 4,
+      "duration_hours": 20
+    }
+  ]
+}

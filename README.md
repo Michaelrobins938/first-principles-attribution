@@ -1,468 +1,228 @@
-# First-Principles Attribution Engine
+# First-Principles Hybrid Attribution Engine
 
-![First-Principles Attribution Banner](docs/images/banner.png)
+## 🎖️ Attribution Matrix v2.0 — "Tactical Intelligence Release"
 
-> A mathematically rigorous, production-ready marketing attribution system combining **Markov chains**, **Shapley value theory**, and **Bayesian uncertainty quantification**.
+A military-grade behavioral intelligence platform combining Markov-Shapley attribution with Kelley's Covariation Model. Features a tactical carbon-fiber interface for precision analytics.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Status: Production](https://img.shields.io/badge/Status-Production-green.svg)
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-blue.svg)
+![Attribution Matrix](docs/images/First-Principles_Attribution_Engine_GitHub_banner_with_gradient_background,_network_visualization,_and_technical_badges%20(1).png)
 
 ---
 
-## 🎯 What This Is
+## 🎯 Core Capabilities
 
-A **defensible attribution system** that moves beyond heuristics (last-touch, linear, time-decay) to provide:
-
-- **Causal measurement** via Markov removal effects
-- **Axiomatic fairness** via Shapley value theory
-- **Uncertainty quantification** via dual UQ (Bootstrap + Dirichlet)
-- **Mathematical guarantees** enforced at runtime
-- **Reproducible outputs** with schema validation
-
-**Not a black box. Not guesswork. Pure first principles.**
+1. **Hybrid Attribution**: Markov Chain causality + Shapley Value fairness
+2. **Behavioral Covariation**: Dispositional vs Situational tagging via Kelley
+3. **Tactical Dashboard**: Carbon-fiber UI with amber accents
+4. **Full-Stack Integration**: Next.js frontend + FastAPI backend
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
-### View the Presentation
-[Download 15-slide Technical Overview (PDF)](presentation/First_Principles_Attribution.pdf)
+### 1. Start the Backend
 
-### Read the Documentation
-- [User Guide](docs/USAGE.md) - Get started in 5 minutes
-- [Technical Whitepaper](docs/WHITEPAPER.md) - Mathematical foundations (735 lines)
-- [Release Summary](docs/RELEASE_SUMMARY.md) - v1.0.0 achievements
+```powershell
+cd backend
+python -m uvicorn main:app --reload --port 8000
+```
 
-### Explore the Code
+### 2. Start the Frontend
+
+```powershell
+cd frontend
+npm run dev
+```
+
+### 3. Access the Platform
+
+- **Dashboard**: http://localhost:3002
+- **API Docs**: http://localhost:8000/docs
+
+---
+
+## 📊 Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    ATTRIBUTION MATRIX                        │
+├─────────────────────────────────────────────────────────────┤
+│  FRONTEND (Next.js)          │  BACKEND (FastAPI)           │
+│  ├── Tactical Theme          │  ├── /api/v1/attribution     │
+│  ├── File Upload             │  │   └── /analyze            │
+│  ├── Charts (Recharts)       │  ├── Attribution Engine      │
+│  └── Loading States          │  │   ├── Markov Chains       │
+│                              │  │   ├── Shapley Values      │
+│                              │  │   └── Hybrid Blend        │
+│                              │  └── Covariation Engine      │
+│                              │      └── Kelley's Model      │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔧 API Endpoints
+
+### Analyze Attribution
+
 ```bash
-# Core attribution engine
-src/attribution.js
-
-# Bayesian uncertainty quantification
-src/dirichlet_uq_temp.js
-
-# Example output
-examples/sample_attribution_result.json
+curl -X POST http://localhost:8000/api/v1/attribution/analyze \
+  -H "Content-Type: application/json" \
+  -d @frontend/app/public/sample_journeys.json
 ```
 
----
-
-## 🔄 Methodology Flow
-
-![Attribution Pipeline](docs/images/methodology-flow.png)
-
-### Step-by-Step Process:
-
-1. **Multi-Source Data** → Universal adapters normalize inputs
-2. **UniversalEvent Schema** → Privacy-preserving standardization
-3. **Markov Chain Analysis** → Probabilistic path modeling with removal effects
-4. **Shapley Value Calculation** → Fair credit distribution via game theory
-5. **Hybrid Attribution (α=0.5)** → Optimal blend of causality and fairness
-6. **Dual Uncertainty Quantification** → Bootstrap + Dirichlet methods
-7. **Validation Suite** → Compare against baselines
-8. **Export Results** → Schema-validated JSON with 90% confidence intervals
-
----
-
-## 🏗️ System Architecture
-
-The platform uses a multi-layer architecture combining probabilistic modeling, game theory, and Bayesian statistics:
-
-1. **Data Ingestion** - Universal adapters for Facebook, GA4, CSV, and Browser History
-2. **Event Standardization** - Conversion to UniversalEvent schema
-3. **Attribution Engines** - Parallel Markov and Shapley computation
-4. **Hybrid Blending** - Tunable α parameter for causality/fairness balance
-5. **Uncertainty Quantification** - Dual UQ with Bootstrap and Dirichlet methods
-6. **Validation & Export** - Schema-validated JSON artifacts
-
-![System Architecture](docs/images/architecture.png)
-
----
-
-## 🔌 Universal Data Adapters
-
-![Adapter Ecosystem](docs/images/adapter-ecosystem.png)
-
-| Adapter | Input Format | Use Case |
-|---------|-------------|----------|
-| **FacebookAdapter** | JSON export | Social media attribution |
-| **GoogleAnalyticsAdapter** | GA4/BigQuery | Web analytics |
-| **CSVAdapter** | Generic CSV | Custom data sources |
-| **BrowserHistoryAdapter** | Chrome/Firefox/Safari | Personal browsing analysis |
-
-All adapters convert to the **UniversalEvent** schema with timestamp (ISO 8601), user_id (SHA256 hashed), channel taxonomy, and context signals.
-
----
-
-## Key Features
-
-### Hybrid Attribution Model
-- **Markov Chains**: Probabilistic path modeling with counterfactual analysis
-- **Shapley Values**: Cooperative game theory for fair credit allocation
-- **Hybrid Blending**: Tunable alpha parameter balances causality vs fairness
-
-### Dual Uncertainty Quantification
-- **Bootstrap UQ**: Measures path sampling uncertainty
-- **Dirichlet UQ**: Measures transition parameter uncertainty
-- **Result**: 90% confidence intervals on all attribution scores
-
-### Production Hardening
-- **Runtime Invariants**: Row-stochastic matrices, value conservation, quantile ordering
-- **Schema Validation**: JSON Schema compliance for all artifacts
-- **Reproducibility**: Seeded random processes, timestamped outputs
-- **Privacy-First**: No PII storage, fingerprint-based path resolution
-
----
-
-## 📦 Supported Data Sources
-
-| Source | Format | Required Fields | Example Usage |
-|--------|--------|-----------------|---------------|
-| **Google Analytics 4** | JSON (BigQuery export) | `event_name`, `event_timestamp`, `user_pseudo_id`, `traffic_source` | `GoogleAnalyticsAdapter('ga4_export.json')` |
-| **Facebook** | JSON (Data Export) | `timestamp`, `type`, `name` (off-Facebook activity) | `FacebookAdapter('facebook_export/')` |
-| **CSV** | Any CSV | `timestamp`, `user_id`, `channel` | `CSVAdapter('data.csv')` |
-| **Browser History** | JSON (Chrome/Firefox) | `URL`, `title`, `visitTime` | `BrowserHistoryAdapter('history.json')` |
-
-### UniversalEvent Schema
-
-All adapters convert to this common format:
-
-```python
-UniversalEvent(
-    timestamp: str,          # ISO 8601 format
-    user_id: str,            # SHA256 hashed (privacy-preserving)
-    channel: str,            # Normalized taxonomy (Paid Search, Organic Social, etc.)
-    event_type: str,         # pageview, click, engagement, conversion
-    context: dict,           # device, intent_signal, session_depth, source_platform
-    conversion_value: float, # 0.0 unless conversion event
-    metadata: dict           # Source-specific fields
-)
-```
-
-### Usage Example
-
-```python
-from src.adapters import FacebookAdapter, GoogleAnalyticsAdapter, merge_event_streams
-
-# Parse multiple sources
-fb = FacebookAdapter('facebook_export.json')
-ga = GoogleAnalyticsAdapter('ga4_export.json')
-
-# Get universal events
-fb_events = fb.parse()
-ga_events = ga.parse()
-
-# Combine and feed to attribution engine
-all_events = merge_event_streams(fb_events, ga_events)
-```
-
----
-
-## Example Output
-
+**Response:**
 ```json
 {
-  "ir_version": "1.0.0",
-  "hybrid_value": {
-    "Search": 63.00,
-    "Email": 37.50,
-    "Direct": 27.00
-  },
-  "confidence_intervals": {
-    "Search": {
-      "p05": 38.46,
-      "p50": 63.12,
-      "p95": 87.21
-    }
-  },
-  "rank_stability": {
-    "Search": {
-      "top1": 0.85,
-      "top2": 0.98
-    }
+  "status": "success",
+  "hybrid_result": {
+    "channel_attributions": {
+      "direct": 0.424,
+      "google": 0.197,
+      "email": 0.194,
+      "facebook": 0.185
+    },
+    "alpha_used": 0.5,
+    "confidence_intervals": {...}
   }
 }
 ```
 
-**Interpretation**: Search gets 42% attribution ($63), and we're 85% confident it's the #1 channel.
+---
+
+## 📁 Project Structure
+
+```
+first-principles-attribution/
+├── frontend/                    # Next.js Tactical Dashboard
+│   ├── app/
+│   │   ├── page.tsx            # Main dashboard
+│   │   ├── AttributionCharts.tsx
+│   │   ├── BehavioralTags.tsx
+│   │   ├── LLMReports.tsx
+│   │   ├── FileUpload.tsx
+│   │   └── public/
+│   │       └── sample_journeys.json
+│   ├── tailwind.config.js
+│   └── package.json
+│
+├── backend/                     # FastAPI Backend
+│   ├── main.py                 # API entry point
+│   ├── api/router.py           # Attribution endpoints
+│   └── engines/attribution/
+│       ├── engine.py           # Markov-Shapley hybrid
+│       └── covariation.py      # Kelley's Model
+│
+├── lib/
+│   └── attribution.js          # JavaScript reference
+│
+├── llm-scaffold/               # LLM Interpretation Layer
+├── docs/images/                # Visual assets
+└── logs/                       # Documentation
+```
 
 ---
 
-## Use Cases
+## 🧮 Mathematical Foundation
 
-### Marketing Analytics
-- Defensible ROI allocation across channels
-- Budget optimization with uncertainty quantification
-- Sensitivity analysis for stakeholder presentations
+### Hybrid Attribution Model
 
-### Academic Research
-- Reproducible attribution methodology
-- Novel dual UQ framework (Bootstrap + Dirichlet)
-- Open-source reference implementation
+**Hybrid Value (α)**:
+```
+V_hybrid = α × V_markov + (1-α) × V_shapley
+```
 
-### Enterprise Applications
-- Causal measurement for decision-making
-- Audit-trail compliance (schema-validated artifacts)
-- Privacy-preserving analytics
-
----
-
-## 🆚 Comparison with Traditional Methods
-
-| Feature | Last-Touch | Linear | Time-Decay | **First-Principles** |
-|---------|-----------|--------|------------|---------------------|
-| **Causality** | ❌ | ❌ | ❌ | ✅ Markov chains |
-| **Fairness** | ❌ | Partial | Partial | ✅ Shapley values |
-| **Uncertainty** | ❌ | ❌ | ❌ | ✅ Dual UQ |
-| **Validation** | ❌ | ❌ | ❌ | ✅ Full suite |
-| **Causal Inference** | ❌ | ❌ | ❌ | ✅ 5 methods |
-| **Multi-Source** | Limited | Limited | Limited | ✅ Universal adapters |
-
-![Dashboard Mockup](docs/images/dashboard.png)
-
-First-Principles provides **causal measurement** (not just correlation), **axiomatic fairness** (via game theory), and **uncertainty quantification** (confidence intervals on all scores).
-
----
-
-## 📊 Visualizations Gallery
-
-### Channel Attribution Results
-
-![Channel Attribution Results](docs/images/channel-attribution-results.png)
+Where:
+- `V_markov`: Channel contribution via state transition probabilities
+- `V_shapley`: Fair credit via cooperative game theory
+- `α`: User-controlled blend (default: 0.5)
 
 ### Uncertainty Quantification
 
-![Uncertainty Quantification](docs/images/uncertainty-quantification.png)
+- **Bootstrap Resampling**: 10,000 iterations
+- **Confidence Intervals**: 90% CI on all attributions
+- **Rank Stability**: Measured via Dirichlet sampling
 
-### Markov Chain Visualization
+### Behavioral Covariation (Kelley)
 
-![Markov Chain](docs/images/markov-chain-visualization.png)
+| Metric | Description |
+|--------|-------------|
+| **Consensus** | Do others behave the same in this situation? |
+| **Distinctiveness** | Is this behavior unique to this situation? |
+| **Consistency** | Does this behavior repeat across situations? |
 
-### Shapley Values
-
-![Shapley Values](docs/images/shapley-values.png)
-
-### Data Flow Diagram
-
-![Data Flow](docs/images/data-flow-diagram.png)
-
-### Validation Results
-
-![Validation Results](docs/images/validation-results.png)
+**Classification**:
+- `[DISPOSITIONAL]` = High Consistency + Low Distinctiveness
+- `[SITUATIONAL]` = Low Consistency + High Consensus
 
 ---
 
-## 🧠 LLM Interpretation Layer
+## 🎨 Tactical Theme
 
-This repository includes a complete **LLM scaffold** for interpreting attribution results. The scaffold enables AI-powered analysis of IR artifacts.
+The frontend features a unique carbon-fiber aesthetic:
 
-### What's Included
-
-```
-llm-scaffold/
-├── ir-schema.json              # JSON Schema for IR validation
-├── system-prompt.md            # LLM identity and constraints
-├── analysis-prompts.md         # Modular task prompts (A-G)
-├── user-prompt-template.md     # Example usage template
-└── output-templates/
-    ├── diagrams.mmd           # Mermaid diagram source
-    └── viz_spec.json          # Chart specifications
-```
-
-### How It Works
-
-1. **Attribution Engine** produces IR JSON artifacts
-2. **LLM Scaffold** interprets IR into human-readable insights
-3. **Output Templates** generate 5 file types:
-   - `executive_summary.md` - Stakeholder summary
-   - `model_decomposition.md` - Technical breakdown
-   - `diagrams.mmd` - Mermaid flowcharts
-   - `viz_spec.json` - Chart data for frontend
-   - `risk_and_assumptions.md` - Caveats and stress tests
-
-### Example Usage
-
-```python
-from llm_scaffold import generate_analysis
-
-# Attribution produces IR artifact
-ir_artifact = run_attribution(events)
-
-# LLM interprets IR into comprehensive analysis
-analysis = generate_analysis(
-    ir_artifact=ir_artifact,
-    task="executive_summary",  # or "full_analysis", "technical_deep_dive"
-    audience="stakeholders"     # or "technical_team"
-)
-
-# Outputs: executive_summary.md, diagrams.mmd, viz_spec.json, etc.
-```
-
-### Production Hardening
-
-All IR artifacts include:
-- **Version stamping** (`ir_version: "1.0.0"`)
-- **Invariant checks** (row-stochastic, sums to 1.0)
-- **Confidence intervals** (90% CI from bootstrap resampling)
-- **Rank stability** metrics
+- **Background**: Pure black with carbon fiber texture
+- **Accents**: Amber (#f59e0b) for tactical highlights
+- **Typography**: Monospace (SFMono-Regular) for precision
+- **No Gradients**: Flat, military-grade design
+- **No Rounded Corners**: Sharp edges only
 
 ---
 
-## Technical Stack
+## 📦 Sample Data
 
-![Tech Stack](docs/images/tech-stack.png)
+Test with `frontend/app/public/sample_journeys.json`:
 
-| Component | Technology |
-|-----------|------------|
-| **Core Engine** | JavaScript (ES6+) |
-| **Statistics** | Marsaglia-Tsang Gamma sampler, Box-Muller transform |
-| **Validation** | JSON Schema Draft-07 |
-| **UI** | React 18 + Next.js |
-| **Charts** | Recharts |
-
----
-
-## Mathematical Guarantees
-
-| Property | Guarantee | Enforcement |
-|----------|-----------|-------------|
-| **Sequence-Aware** | Path order encoded in transition matrix | Markov chains |
-| **Counterfactual** | Removal effects well-defined | v(N) - v(N\{i}) |
-| **Efficient** | Sum of shares = v(N) | Shapley axiom |
-| **Fair** | Equal contributors = equal credit | Shapley symmetry |
-| **Transparent** | Full audit trail | Versioned artifacts |
-
-**Runtime checks:**
-- Shares sum to 1.0 (tolerance: 1e-6)
-- Values sum to total conversion (tolerance: $1.00)
-- Row-stochastic transition matrix (tolerance: 1e-6)
-- Quantile ordering (p05 <= p25 <= p50 <= p75 <= p95)
-
----
-
-## Documentation
-
-| Document | Lines | Purpose |
-|----------|-------|---------|
-| [USAGE.md](docs/USAGE.md) | 350 | Quick start guide |
-| [WHITEPAPER.md](docs/WHITEPAPER.md) | 735 | Mathematical specification |
-| [RELEASE_SUMMARY.md](docs/RELEASE_SUMMARY.md) | 400 | Production validation |
-
----
-
-## Core Methodology
-
-### Step 1: Markov Engine (Causality)
-```
-Raw Path Data -> Transition Matrix T -> Removal Effects -> Causal Value v(S)
-```
-
-### Step 2: Shapley Engine (Fairness)
-```
-Causal Values -> Coalition Enumeration -> Marginal Contributions -> Fair Shares
-```
-
-### Step 3: Hybrid Attribution
-```
-Hybrid = alpha * Markov + (1-alpha) * Shapley
-```
-
-Where alpha in [0,1] controls the tradeoff between pure causality (alpha=1) and pure fairness (alpha=0).
-
----
-
-## Privacy & Security
-
-- **No PII storage** - Fingerprint-based path grouping
-- **Local computation** - All processing client-side
-- **No tracking** - Zero external API calls
-- **User-controlled** - Explicit export, no background sync
-
----
-
-## Performance
-
-| Operation | Channels | Runtime |
-|-----------|----------|---------|
-| Single attribution | 5 | <1s |
-| Full robustness stack | 5 | ~15s |
-| Bootstrap (B=200) | 5 | ~25s |
-
-**Complexity limits:**
-- Exact Shapley: n <= 12 channels (enforced)
-- Transition matrix: n <= 50 states (practical)
-
----
-
-## Getting Started
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/Michaelrobins938/first-principles-attribution.git
-cd first-principles-attribution
-```
-
-### 2. Explore the code
-```bash
-# Read the core engine
-cat src/attribution.js
-
-# View example output
-cat examples/sample_attribution_result.json
-```
-
-### 3. Read the docs
-Start with [USAGE.md](docs/USAGE.md) for a 5-minute overview.
-
----
-
-## Key Achievements
-
-- **Frozen v1.0.0** - Production-ready release
-- **Dual UQ Framework** - Bootstrap + Dirichlet parameter uncertainty
-- **735-line Whitepaper** - Complete mathematical specification
-- **Schema-Validated** - All artifacts comply with JSON Schema
-- **Row-stochastic error: 4.44e-16** - Machine epsilon precision
-- **Zero hydration errors** - Clean React/Next.js implementation
-
----
-
-## Citation
-
-If you use this work in research, please cite:
-
-```bibtex
-@software{robinson2024attribution,
-  author = {Robinson, Forsythe},
-  title = {First-Principles Attribution Engine},
-  year = {2024},
-  version = {1.0.0},
-  url = {https://github.com/Michaelrobins938/first-principles-attribution}
+```json
+{
+  "journeys": [
+    {
+      "journey_id": "j001",
+      "path": [
+        {"channel": "facebook", "timestamp": "2024-01-15T10:00:00Z", "context": "social_feed"},
+        {"channel": "google", "timestamp": "2024-01-15T10:15:00Z", "context": "search"},
+        {"channel": "direct", "timestamp": "2024-01-15T10:30:00Z", "context": "direct_visit"}
+      ],
+      "conversion": true,
+      "conversion_value": 150.00
+    }
+  ]
 }
 ```
 
 ---
 
-## License
+## 🔒 Privacy-First Design
 
-MIT License - See [LICENSE](LICENSE) file for details.
-
----
-
-## Acknowledgments
-
-**Mathematical Foundations:**
-- Lloyd Shapley (1953) - Cooperative game theory
-- Kemeny & Snell (1960) - Finite Markov chains
-- Marsaglia & Tsang (2000) - Gamma variate sampling
+- **Zero Cloud Storage**: All processing is local
+- **File-system Sandboxing**: Data never leaves your machine
+- **No External API Calls**: Complete offline capability
+- **Schema-Validated**: All inputs verified before processing
 
 ---
 
-**Status**: Production-Ready
-**Version**: 1.0.0 (Frozen)
-**Last Updated**: January 2025
+## 📄 License & Credits
+
+- **Status**: v2.0 — Production Ready
+- **License**: MIT
+- **Repository**: https://github.com/Michaelrobins938/first-principles-attribution
 
 ---
 
-*This is a complete, correct, and defensible attribution system.*
+## 🚀 Deployment
+
+### Frontend (Vercel)
+```bash
+cd frontend
+vercel deploy
+```
+
+### Backend (Railway/Render)
+```bash
+cd backend
+railway up
+```
+
+### Docker
+```bash
+docker-compose up --build
+```
