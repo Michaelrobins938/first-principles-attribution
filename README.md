@@ -1,3 +1,5 @@
+
+![First-Principles Attribution Engine](docs/images/banner.png)
 # First-Principles Attribution Engine
 
 > A mathematically rigorous, production-ready marketing attribution system combining **Markov chains**, **Shapley value theory**, and **Bayesian uncertainty quantification**.
@@ -123,8 +125,7 @@ examples/sample_attribution_result.json
 | **Causality** | ❌ | ❌ | ❌ | ✅ Markov chains |
 | **Fairness** | ❌ | Partial | Partial | ✅ Shapley values |
 | **Uncertainty** | ❌ | ❌ | ❌ | ✅ Dual UQ |
-| **Validation** | ❌ | ❌ | ❌ | ✅ Full suite |
-| **Causal Inference** | ❌ | ❌ | ❌ | ✅ 5 methods |
+docs: Add banner image and update README visuals| **Causal Inference** | ❌ | ❌ | ❌ | ✅ 5 methods |
 | **Multi-Source** | Limited | Limited | Limited | ✅ Universal adapters |
 
 
