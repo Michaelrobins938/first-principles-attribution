@@ -31,6 +31,7 @@ A **defensible attribution system** that moves beyond heuristics (last-touch, li
 - [User Guide](docs/USAGE.md) - Get started in 5 minutes
 - [Technical Whitepaper](docs/WHITEPAPER.md) - Mathematical foundations (735 lines)
 - [Release Summary](docs/RELEASE_SUMMARY.md) - v1.0.0 achievements
+- - [Technical Documentation](docs/TECHNICAL_DOCUMENTATION.md) - Full-stack architecture and implementation details
 
 ### Explore the Code
 ```bash
@@ -251,6 +252,7 @@ All IR artifacts include:
 | [USAGE.md](docs/USAGE.md) | 350 | Quick start guide |
 | [WHITEPAPER.md](docs/WHITEPAPER.md) | 735 | Mathematical specification |
 | [RELEASE_SUMMARY.md](docs/RELEASE_SUMMARY.md) | 400 | Production validation |
+| [TECHNICAL_DOCUMENTATION.md](docs/TECHNICAL_DOCUMENTATION.md) | 670 | Full-stack architecture |
 
 ---
 
