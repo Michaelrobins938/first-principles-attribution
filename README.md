@@ -148,7 +148,7 @@ The engine provides two complementary approaches to quantifying confidence in at
 - **Example**: Discover that Social drives 40% of conversions via assist touches, not just 5% last-touch
 
 #### Academic Research
-- **Reproducible Methodology**: 735-line whitepaper with full mathematical specification
+- **Reproducible Methodology**: 824-line whitepaper with full mathematical specification
 - **Novel Contributions**: Dual UQ framework (Bootstrap + Dirichlet) not found in existing literature
 - **Open Source**: Reference implementation for citation and extension
 - **Validation Protocols**: Stress tests include single-channel equality, value conservation, schema compliance
