@@ -19,6 +19,8 @@ An open-source, production-ready marketing attribution system designed to provid
 
 **Core Philosophy**: Privacy-first (no PII storage, fingerprint-based path resolution), reproducible (seeded RNG, schema-validated outputs), and ethically bounded (designed for self-reflection and rigor, not surveillance).
 
+(docs/images/screencapture-localhost-3000-2026-01-21-03_43_24.png)
+
 ### A Defensible Attribution System
 
 This system moves beyond heuristics to provide:
