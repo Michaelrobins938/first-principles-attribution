@@ -22,6 +22,10 @@ A **defensible attribution system** that moves beyond heuristics (last-touch, li
 
 **Not a black box. Not guesswork. Pure first principles.**
 
+![Three Pillars of Attribution](docs/images/threepillars.jpg)
+
+*The foundation: Markov Chains (causality), Shapley Values (fairness), and Bayesian UQ (uncertainty quantification)*
+
 ---
 
 ## Quick Start
@@ -137,6 +141,11 @@ First-Principles provides **causal measurement** (not just correlation), **axiom
 ## 📊 Visualizations Gallery
 
 ### Channel Attribution Results
+
+
+### Live Dashboard
+
+![Live Attribution Dashboard](docs/images/screencapture-localhost-3000-2026-01-21-03_43_24.png)
 
 ![Channel Attribution Results](docs/images/channel-attribution-results.png)
 
