@@ -2,8 +2,11 @@ a# A First-Principles Hybrid Attribution Framework
 
 ## Integrating Probabilistic Path Modeling, Cooperative Game Theory, and Psychographic Transition Priors
 
-**Technical Whitepaper v1.0.0**  
-**Classification:** Methodology Specification  
+**Technical Whitepaper v2.0.0****Classification:** Methodology 
+**Classification:** Methodology Specification / Decision Science  
+**Status:** Production-Ready / Frozen  
+**Document Version:** 2.0.0  
+**Last Updated:** January 21, 2026Specification  
 **Status:** Frozen (implementation-complete)
 
 ---
