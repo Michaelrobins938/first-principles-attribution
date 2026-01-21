@@ -1,0 +1,98 @@
+{
+  "journeys": [
+    {
+      "journey_id": "journey-001",
+      "path": [
+        {
+          "channel": "Search",
+          "timestamp": "2024-01-15T10:30:00Z",
+          "context": "organic"
+        },
+        {
+          "channel": "Social",
+          "timestamp": "2024-01-15T12:00:00Z"
+        },
+        {
+          "channel": "Email",
+          "timestamp": "2024-01-15T15:00:00Z"
+        }
+      ],
+      "conversion": true,
+      "conversion_value": 100.00,
+      "num_touchpoints": 3,
+      "duration_hours": 4.5
+    },
+    {
+      "journey_id": "journey-002",
+      "path": [
+        {
+          "channel": "Direct",
+          "timestamp": "2024-01-16T09:00:00Z"
+        }
+      ],
+      "conversion": true,
+      "conversion_value": 50.00,
+      "num_touchpoints": 1,
+      "duration_hours": 0.0
+    },
+    {
+      "journey_id": "journey-003",
+      "path": [
+        {
+          "channel": "Paid",
+          "timestamp": "2024-01-17T11:00:00Z"
+        },
+        {
+          "channel": "Search",
+          "timestamp": "2024-01-17T14:00:00Z"
+        }
+      ],
+      "conversion": false,
+      "conversion_value": 0.00,
+      "num_touchpoints": 2,
+      "duration_hours": 3.0
+    },
+    {
+      "journey_id": "journey-004",
+      "path": [
+        {
+          "channel": "Email",
+          "timestamp": "2024-01-18T08:00:00Z"
+        },
+        {
+          "channel": "Direct",
+          "timestamp": "2024-01-18T16:00:00Z"
+        }
+      ],
+      "conversion": true,
+      "conversion_value": 200.00,
+      "num_touchpoints": 2,
+      "duration_hours": 8.0
+    },
+    {
+      "journey_id": "journey-005",
+      "path": [
+        {
+          "channel": "Social",
+          "timestamp": "2024-01-19T10:00:00Z"
+        },
+        {
+          "channel": "Paid",
+          "timestamp": "2024-01-19T12:00:00Z"
+        },
+        {
+          "channel": "Email",
+          "timestamp": "2024-01-19T18:00:00Z"
+        },
+        {
+          "channel": "Direct",
+          "timestamp": "2024-01-20T09:00:00Z"
+        }
+      ],
+      "conversion": true,
+      "conversion_value": 75.00,
+      "num_touchpoints": 4,
+      "duration_hours": 23.0
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+  }
+  
+  body {
+    @apply font-mono;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Carbon Fiber Background */
+.carbon-fiber {
+  background-color: #000;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(24, 24, 27, 0.4) 2px,
+      rgba(24, 24, 27, 0.4) 4px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 2px,
+      rgba(24, 24, 27, 0.4) 2px,
+      rgba(24, 24, 27, 0.4) 4px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(9, 9, 11, 1),
+      rgba(24, 24, 27, 1)
+    );
+}
+
+/* Carbon Fiber Plates */
+.carbon-plate {
+  background: linear-gradient(135deg, #18181b 0%, #09090b 100%);
+  box-shadow: 
+    inset 0 1px 0 rgba(250, 204, 21, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.carbon-plate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(250, 204, 21, 0.02) 2px,
+      rgba(250, 204, 21, 0.02) 4px
+    );
+  pointer-events: none;
+}
+
+.carbon-plate-deep {
+  background: linear-gradient(135deg, #09090b 0%, #000 100%);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.6),
+    inset 0 -1px 0 rgba(250, 204, 21, 0.05),
+    0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Tactical Grid */
+.tactical-grid {
+  background-image: 
+    linear-gradient(rgba(113, 113, 122, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(113, 113, 122, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Scanlines */
+.scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  animation: scanlines-move 8s linear infinite;
+}
+
+@keyframes scanlines-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+/* Custom scrollbar - Tactical */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+  border-left: 1px solid #27272a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3f3f46 0%, #27272a 100%);
+  border: 1px solid #18181b;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #52525b 0%, #3f3f46 100%);
+  border-color: #f59e0b;
+}
+
+::-webkit-scrollbar-corner {
+  background: #09090b;
+}
+
+/* Tactical Glow Effect */
+.tactical-glow {
+  box-shadow: 
+    0 0 10px rgba(251, 191, 36, 0.3),
+    0 0 20px rgba(251, 191, 36, 0.2),
+    0 0 30px rgba(251, 191, 36, 0.1);
+}
+
+/* Smooth animations */
+* {
+  @apply transition-colors duration-150;
+}
+
+/* HUD Element */
+.hud-border {
+  position: relative;
+  border: 1px solid #3f3f46;
+}
+
+.hud-border::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(251, 191, 36, 0.2) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hud-border:hover::before {
+  opacity: 1;
+}
+
+/* Pulse animation for loading */
+@keyframes pulse-tactical {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+  }
+}
+
+.animate-pulse-tactical {
+  animation: pulse-tactical 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Shimmer effect - Tactical */
+@keyframes shimmer-tactical {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer-tactical {
+  animation: shimmer-tactical 3s linear infinite;
+  background: linear-gradient(
+    to right,
+    rgba(24, 24, 27, 0) 0%,
+    rgba(251, 191, 36, 0.1) 20%,
+    rgba(251, 191, 36, 0.3) 50%,
+    rgba(251, 191, 36, 0.1) 80%,
+    rgba(24, 24, 27, 0) 100%
+  );
+  background-size: 1000px 100%;
+}
+
+/* Terminal Cursor */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.terminal-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+/* Fade in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+/* Hexagon pattern overlay */
+.hex-pattern {
+  background-image: 
+    radial-gradient(circle at 50% 50%, transparent 40%, rgba(251, 191, 36, 0.05) 40%, rgba(251, 191, 36, 0.05) 50%, transparent 50%);
+  background-size: 30px 30px;
+}
+
+/* Military-grade corners */
+.tactical-corners {
+  clip-path: polygon(
+    8px 0, calc(100% - 8px) 0, 100% 8px,
+    100% calc(100% - 8px), calc(100% - 8px) 100%,
+    8px 100%, 0 calc(100% - 8px), 0 8px
+  );
+}

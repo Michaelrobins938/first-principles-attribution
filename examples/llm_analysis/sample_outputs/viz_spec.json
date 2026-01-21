@@ -1,0 +1,80 @@
+{
+  "": "viz_spec/1.0.0",
+  "generated_at": "2024-01-20T14:53:00Z",
+  "charts": {
+    "hybrid_attribution_bar": {
+      "type": "bar",
+      "title": "Hybrid Attribution by Channel",
+      "x_axis": "channel",
+      "y_axis": "share",
+      "data": [
+        {
+          "channel": "Search",
+          "value": 0.42,
+          "ci_low": 0.35,
+          "ci_high": 0.49,
+          "color": "#6366f1"
+        },
+        {
+          "channel": "Email",
+          "value": 0.25,
+          "ci_low": 0.2,
+          "ci_high": 0.3,
+          "color": "#ec4899"
+        },
+        {
+          "channel": "Direct",
+          "value": 0.18,
+          "ci_low": 0.13,
+          "ci_high": 0.23,
+          "color": "#8b5cf6"
+        },
+        {
+          "channel": "Social",
+          "value": 0.1,
+          "ci_low": 0.07,
+          "ci_high": 0.13,
+          "color": "#14b8a6"
+        },
+        {
+          "channel": "Display",
+          "value": 0.05,
+          "ci_low": 0.02,
+          "ci_high": 0.08,
+          "color": "#f59e0b"
+        }
+      ]
+    },
+    "rank_stability_heatmap": {
+      "type": "heatmap",
+      "title": "Channel Ranking Stability",
+      "data": [
+        {
+          "channel": "Search",
+          "top1": 0.85,
+          "top2": 0.98,
+          "top3": 0.99
+        },
+        {
+          "channel": "Email",
+          "top1": 0.12,
+          "top2": 0.89,
+          "top3": 0.99
+        },
+        {
+          "channel": "Direct",
+          "top1": 0.03,
+          "top2": 0.13,
+          "top3": 0.94
+        }
+      ]
+    }
+  },
+  "kpi_cards": {
+    "total_attribution": 1.0,
+    "top_channel": "Search",
+    "top_channel_share": 0.42,
+    "confidence_level": "90%",
+    "n_bootstrap_samples": 10000
+  }
+}

@@ -1,7 +1,5 @@
 # First-Principles Attribution Engine
 
-![First-Principles Attribution Banner](docs/images/banner.png)
-
 > A mathematically rigorous, production-ready marketing attribution system combining **Markov chains**, **Shapley value theory**, and **Bayesian uncertainty quantification**.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -10,7 +8,7 @@
 
 ---
 
-## 🎯 What This Is
+## What This Is
 
 A **defensible attribution system** that moves beyond heuristics (last-touch, linear, time-decay) to provide:
 
@@ -48,53 +46,6 @@ examples/sample_attribution_result.json
 
 ---
 
-## 🔄 Methodology Flow
-
-![Attribution Pipeline](docs/images/methodology-flow.png)
-
-### Step-by-Step Process:
-
-1. **Multi-Source Data** → Universal adapters normalize inputs
-2. **UniversalEvent Schema** → Privacy-preserving standardization
-3. **Markov Chain Analysis** → Probabilistic path modeling with removal effects
-4. **Shapley Value Calculation** → Fair credit distribution via game theory
-5. **Hybrid Attribution (α=0.5)** → Optimal blend of causality and fairness
-6. **Dual Uncertainty Quantification** → Bootstrap + Dirichlet methods
-7. **Validation Suite** → Compare against baselines
-8. **Export Results** → Schema-validated JSON with 90% confidence intervals
-
----
-
-## 🏗️ System Architecture
-
-The platform uses a multi-layer architecture combining probabilistic modeling, game theory, and Bayesian statistics:
-
-1. **Data Ingestion** - Universal adapters for Facebook, GA4, CSV, and Browser History
-2. **Event Standardization** - Conversion to UniversalEvent schema
-3. **Attribution Engines** - Parallel Markov and Shapley computation
-4. **Hybrid Blending** - Tunable α parameter for causality/fairness balance
-5. **Uncertainty Quantification** - Dual UQ with Bootstrap and Dirichlet methods
-6. **Validation & Export** - Schema-validated JSON artifacts
-
-![System Architecture](docs/images/architecture.png)
-
----
-
-## 🔌 Universal Data Adapters
-
-![Adapter Ecosystem](docs/images/adapter-ecosystem.png)
-
-| Adapter | Input Format | Use Case |
-|---------|-------------|----------|
-| **FacebookAdapter** | JSON export | Social media attribution |
-| **GoogleAnalyticsAdapter** | GA4/BigQuery | Web analytics |
-| **CSVAdapter** | Generic CSV | Custom data sources |
-| **BrowserHistoryAdapter** | Chrome/Firefox/Safari | Personal browsing analysis |
-
-All adapters convert to the **UniversalEvent** schema with timestamp (ISO 8601), user_id (SHA256 hashed), channel taxonomy, and context signals.
-
----
-
 ## Key Features
 
 ### Hybrid Attribution Model
@@ -112,50 +63,6 @@ All adapters convert to the **UniversalEvent** schema with timestamp (ISO 8601),
 - **Schema Validation**: JSON Schema compliance for all artifacts
 - **Reproducibility**: Seeded random processes, timestamped outputs
 - **Privacy-First**: No PII storage, fingerprint-based path resolution
-
----
-
-## 📦 Supported Data Sources
-
-| Source | Format | Required Fields | Example Usage |
-|--------|--------|-----------------|---------------|
-| **Google Analytics 4** | JSON (BigQuery export) | `event_name`, `event_timestamp`, `user_pseudo_id`, `traffic_source` | `GoogleAnalyticsAdapter('ga4_export.json')` |
-| **Facebook** | JSON (Data Export) | `timestamp`, `type`, `name` (off-Facebook activity) | `FacebookAdapter('facebook_export/')` |
-| **CSV** | Any CSV | `timestamp`, `user_id`, `channel` | `CSVAdapter('data.csv')` |
-| **Browser History** | JSON (Chrome/Firefox) | `URL`, `title`, `visitTime` | `BrowserHistoryAdapter('history.json')` |
-
-### UniversalEvent Schema
-
-All adapters convert to this common format:
-
-```python
-UniversalEvent(
-    timestamp: str,          # ISO 8601 format
-    user_id: str,            # SHA256 hashed (privacy-preserving)
-    channel: str,            # Normalized taxonomy (Paid Search, Organic Social, etc.)
-    event_type: str,         # pageview, click, engagement, conversion
-    context: dict,           # device, intent_signal, session_depth, source_platform
-    conversion_value: float, # 0.0 unless conversion event
-    metadata: dict           # Source-specific fields
-)
-```
-
-### Usage Example
-
-```python
-from src.adapters import FacebookAdapter, GoogleAnalyticsAdapter, merge_event_streams
-
-# Parse multiple sources
-fb = FacebookAdapter('facebook_export.json')
-ga = GoogleAnalyticsAdapter('ga4_export.json')
-
-# Get universal events
-fb_events = fb.parse()
-ga_events = ga.parse()
-
-# Combine and feed to attribution engine
-all_events = merge_event_streams(fb_events, ga_events)
-```
 
 ---
 
@@ -208,110 +115,7 @@ all_events = merge_event_streams(fb_events, ga_events)
 
 ---
 
-## 🆚 Comparison with Traditional Methods
-
-| Feature | Last-Touch | Linear | Time-Decay | **First-Principles** |
-|---------|-----------|--------|------------|---------------------|
-| **Causality** | ❌ | ❌ | ❌ | ✅ Markov chains |
-| **Fairness** | ❌ | Partial | Partial | ✅ Shapley values |
-| **Uncertainty** | ❌ | ❌ | ❌ | ✅ Dual UQ |
-| **Validation** | ❌ | ❌ | ❌ | ✅ Full suite |
-| **Causal Inference** | ❌ | ❌ | ❌ | ✅ 5 methods |
-| **Multi-Source** | Limited | Limited | Limited | ✅ Universal adapters |
-
-![Dashboard Mockup](docs/images/dashboard.png)
-
-First-Principles provides **causal measurement** (not just correlation), **axiomatic fairness** (via game theory), and **uncertainty quantification** (confidence intervals on all scores).
-
----
-
-## 📊 Visualizations Gallery
-
-### Channel Attribution Results
-
-![Channel Attribution Results](docs/images/channel-attribution-results.png)
-
-### Uncertainty Quantification
-
-![Uncertainty Quantification](docs/images/uncertainty-quantification.png)
-
-### Markov Chain Visualization
-
-![Markov Chain](docs/images/markov-chain-visualization.png)
-
-### Shapley Values
-
-![Shapley Values](docs/images/shapley-values.png)
-
-### Data Flow Diagram
-
-![Data Flow](docs/images/data-flow-diagram.png)
-
-### Validation Results
-
-![Validation Results](docs/images/validation-results.png)
-
----
-
-## 🧠 LLM Interpretation Layer
-
-This repository includes a complete **LLM scaffold** for interpreting attribution results. The scaffold enables AI-powered analysis of IR artifacts.
-
-### What's Included
-
-```
-llm-scaffold/
-├── ir-schema.json              # JSON Schema for IR validation
-├── system-prompt.md            # LLM identity and constraints
-├── analysis-prompts.md         # Modular task prompts (A-G)
-├── user-prompt-template.md     # Example usage template
-└── output-templates/
-    ├── diagrams.mmd           # Mermaid diagram source
-    └── viz_spec.json          # Chart specifications
-```
-
-### How It Works
-
-1. **Attribution Engine** produces IR JSON artifacts
-2. **LLM Scaffold** interprets IR into human-readable insights
-3. **Output Templates** generate 5 file types:
-   - `executive_summary.md` - Stakeholder summary
-   - `model_decomposition.md` - Technical breakdown
-   - `diagrams.mmd` - Mermaid flowcharts
-   - `viz_spec.json` - Chart data for frontend
-   - `risk_and_assumptions.md` - Caveats and stress tests
-
-### Example Usage
-
-```python
-from llm_scaffold import generate_analysis
-
-# Attribution produces IR artifact
-ir_artifact = run_attribution(events)
-
-# LLM interprets IR into comprehensive analysis
-analysis = generate_analysis(
-    ir_artifact=ir_artifact,
-    task="executive_summary",  # or "full_analysis", "technical_deep_dive"
-    audience="stakeholders"     # or "technical_team"
-)
-
-# Outputs: executive_summary.md, diagrams.mmd, viz_spec.json, etc.
-```
-
-### Production Hardening
-
-All IR artifacts include:
-- **Version stamping** (`ir_version: "1.0.0"`)
-- **Invariant checks** (row-stochastic, sums to 1.0)
-- **Confidence intervals** (90% CI from bootstrap resampling)
-- **Rank stability** metrics
-
----
-
 ## Technical Stack
-
-![Tech Stack](docs/images/tech-stack.png)
 
 | Component | Technology |
 |-----------|------------|

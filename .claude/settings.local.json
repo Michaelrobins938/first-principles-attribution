@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip show:*)",
+      "Bash(node --version:*)",
+      "Bash(npm ls:*)",
+      "Bash(python -m pip:*)",
+      "Bash(curl:*)",
+      "Bash(netstat:*)",
+      "Bash(ss:*)",
+      "Bash(tasklist:*)",
+      "Bash(wmic process where \"ProcessId=49672 or ProcessId=74600\" get Name,ProcessId)",
+      "Bash(taskkill //F //PID 49672)",
+      "Bash(taskkill //F //PID 74600)",
+      "Bash(powershell -Command \"Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force\")",
+      "Bash(powershell -Command \"Get-Process -Name node -ErrorAction SilentlyContinue | Stop-Process -Force\")",
+      "Bash(npm run build:*)",
+      "Bash(npx tsc:*)"
+    ]
+  }
+}
