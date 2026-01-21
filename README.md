@@ -5,9 +5,8 @@
 
 ## Demo video
 
-<video controls src="https://github.com/Michaelrobins938/first-principles-attribution/raw/main/A_Thinking_Instrument.mp4" width="640">
-  Your browser does not support the video tag.
-</video>
+https://github.com/Michaelrobins938/first-principles-attribution/raw/main/A_Thinking_Instrument.mp4
+
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
