@@ -219,7 +219,7 @@ all_events = merge_event_streams(fb_events, ga_events)
 | **Causal Inference** | ❌ | ❌ | ❌ | ✅ 5 methods |
 | **Multi-Source** | Limited | Limited | Limited | ✅ Universal adapters |
 
-![Dashboard Mockup](docs/images/dashboard.png)
+
 
 First-Principles provides **causal measurement** (not just correlation), **axiomatic fairness** (via game theory), and **uncertainty quantification** (confidence intervals on all scores).
 
