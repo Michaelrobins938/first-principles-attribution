@@ -3,6 +3,13 @@
 
 > A mathematically rigorous, production-ready marketing attribution system combining **Markov chains**, **Shapley value theory**, and **Bayesian uncertainty quantification**.
 
+## Demo video
+
+<video controls src="https://github.com/Michaelrobins938/first-principles-attribution/raw/main/A_Thinking_Instrument.mp4" width="640">
+  Your browser does not support the video tag.
+</video>
+
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Status: Production](https://img.shields.io/badge/Status-Production-green.svg)
 ![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-blue.svg)
