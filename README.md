@@ -5,7 +5,8 @@
 
 ## Demo video
 
-https://github.com/Michaelrobins938/first-principles-attribution/raw/main/A_Thinking_Instrument.mp4
+[![Three pillars](https://raw.githubusercontent.com/Michaelrobins938/first-principles-attribution/main/docs/images/threepillars.jpg)](https://github.com/Michaelrobins938/first-principles-attribution/raw/main/A_Thinking_Instrument.mp4)
+
 
 
 
