@@ -1,4 +1,4 @@
-a# A First-Principles Hybrid Attribution Framework
+# A First-Principles Hybrid Attribution Framework
 
 ## Integrating Probabilistic Path Modeling, Cooperative Game Theory, and Psychographic Transition Priors
 
