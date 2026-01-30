@@ -1,12 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import FileUpload from './FileUpload';
+import FileUpload from './FileUploadWithETL';
 import LoadingState from './LoadingState';
 import AttributionCharts from './components/AttributionCharts';
 import BehavioralTags from './components/BehavioralTags';
 import LLMReports from './components/LLMReports';
 import HybridAttributionDashboard from './components/HybridAttributionDashboard';
+import CalibrationTest from './components/CalibrationTest';
+import PDFReport from './components/PDFReport';
+import { useRef } from 'react';
 import { Activity, Shield, Target, Crosshair, Zap, Play, Brain, FileText, BarChart3, ChevronRight, Database, Lock, Eye, GitBranch, Layers, CheckCircle2, AlertTriangle, HelpCircle, ArrowRight } from 'lucide-react';
 
 interface AnalysisResults {
@@ -15,13 +18,14 @@ interface AnalysisResults {
   reports: any;
 }
 
-type TabType = 'overview' | 'attribution' | 'behavioral' | 'reports' | 'hybrid';
+type TabType = 'overview' | 'attribution' | 'behavioral' | 'reports' | 'hybrid' | 'calibration';
 
 export default function Home() {
   const [results, setResults] = useState<AnalysisResults | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<TabType>('overview');
+  const chartsRef = useRef<HTMLDivElement>(null);
 
   const handleUpload = async (file: File) => {
     setLoading(true);
@@ -641,7 +645,14 @@ export default function Home() {
                 )}
 
                 {activeTab === 'reports' && (
-                  <LLMReports reports={results.reports} />
+                  <div className="space-y-6">
+                    <PDFReport results={results} chartsRef={chartsRef} />
+                    <LLMReports reports={results.reports} />
+                  </div>
+                )}
+
+                {activeTab === 'calibration' && (
+                  <CalibrationTest />
                 )}
 
                 {activeTab === 'hybrid' && (

@@ -81,7 +81,7 @@ export default function FileUpload({ onUpload, disabled }: FileUploadProps) {
             // Convert back to File object in correct format
             const jsonStr = JSON.stringify(result.data, null, 2);
             const blob = new Blob([jsonStr], { type: 'application/json' });
-            processedFile = new File([blob], `processed_${selectedFile.name.replace('.csv', '.json')}`);
+            processedFile = new File([blob], `processed_${selectedFile.name.replace('.csv', '.json')}`, { type: 'application/json' });
           } else {
             console.error('Parsing failed:', result.error);
             // Continue with original file as fallback
@@ -119,12 +119,12 @@ export default function FileUpload({ onUpload, disabled }: FileUploadProps) {
             : selectedFile
             ? 'border-emerald-500/50 bg-emerald-950/10'
             : 'border-zinc-700 hover:border-amber-500/50 hover:bg-zinc-950/50'
-        } ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+        } ${disabled || isProcessing ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
       >
         <input
           type="file"
           onChange={handleFileSelect}
-          disabled={disabled}
+          disabled={disabled || isProcessing}
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
           accept=".json,.csv,.zip,.txt"
         />
@@ -185,16 +185,37 @@ export default function FileUpload({ onUpload, disabled }: FileUploadProps) {
         </div>
       </div>
 
+      {/* Data Source Selector */}
+      {!isProcessing && (
+        <div className="carbon-plate border border-zinc-800 p-4">
+          <div className="flex items-center gap-3 mb-3">
+            <ChevronDown className="w-4 h-4 text-zinc-400" />
+            <span className="text-xs text-zinc-500 font-mono uppercase">DATA SOURCE TYPE</span>
+          </div>
+          <select
+            value={dataSource}
+            onChange={(e) => setDataSource(e.target.value)}
+            className="w-full px-3 py-2 bg-black border border-zinc-700 text-zinc-100 font-mono text-sm focus:border-amber-500 focus:outline-none"
+          >
+            <option value="auto">Auto-Detect</option>
+            <option value="google">Google Takeout</option>
+            <option value="facebook">Facebook Ads</option>
+            <option value="shopify">Shopify Orders</option>
+            <option value="ga4">GA4 Export</option>
+          </select>
+        </div>
+      )}
+
       {selectedFile && (
         <button
           onClick={handleAnalyze}
-          disabled={disabled}
+          disabled={disabled || isProcessing}
           className="w-full py-4 px-6 carbon-plate border border-amber-500/50 text-amber-500 font-bold hover:bg-amber-950/30 hover:border-amber-500 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent transition-all font-mono uppercase tracking-wider text-sm flex items-center justify-center gap-3 relative overflow-hidden group"
         >
-          {disabled ? (
+          {disabled || isProcessing ? (
             <>
               <div className="w-5 h-5 border-2 border-amber-500/30 border-t-amber-500 animate-spin" />
-              ANALYZING TARGET...
+              {isProcessing ? 'PROCESSING DATA...' : 'ANALYZING TARGET...'}
             </>
           ) : (
             <>
