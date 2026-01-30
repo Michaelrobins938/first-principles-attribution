@@ -3,6 +3,13 @@
 
 > A mathematically rigorous, production-ready marketing attribution system combining **Markov chains**, **Shapley value theory**, and **Bayesian uncertainty quantification**.
 
+## Demo video
+
+[![Three pillars](https://raw.githubusercontent.com/Michaelrobins938/first-principles-attribution/main/docs/images/threepillars.jpg)](https://github.com/Michaelrobins938/first-principles-attribution/raw/main/A_Thinking_Instrument.mp4)
+
+
+
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Status: Production](https://img.shields.io/badge/Status-Production-green.svg)
 ![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-blue.svg)
@@ -18,6 +25,9 @@ An open-source, production-ready marketing attribution system designed to provid
 **Released**: MIT License | Version 1.0.0 (Frozen) | Whitepaper v2.0.0 (January 2026)
 
 **Core Philosophy**: Privacy-first (no PII storage, fingerprint-based path resolution), reproducible (seeded RNG, schema-validated outputs), and ethically bounded (designed for self-reflection and rigor, not surveillance).
+
+![Dashboard screenshot](docs/images/screencapture-localhost-3000-2026-01-21-03_43_24.png)
+
 
 ### A Defensible Attribution System
 
