@@ -18,7 +18,12 @@
       "Bash(npx tsc:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(vercel --version:*)",
+      "Bash(npm install:*)",
+      "Bash(vercel link:*)",
+      "Bash(npx vercel:*)",
+      "WebFetch(domain:backend-sable-six-11.vercel.app)"
     ]
   }
 }
